@@ -19,7 +19,24 @@ Number.prototype.toFixedString = function (digits) {
 };
 
 Array.prototype.pushOnNotEmpty = function (element) {
-	if (element) {
-		this.push(element)
-	}
+	return (element)
+		? this.push(element)
+		: this.length
+	;
 };
+
+String.prototype.sprintf = function (args) {
+	if (args && typeof args === 'object') {
+		for (var i = 0; i < args.length; ++i) {
+			this.sprintf(args[i]);
+		}
+		return this;
+	}
+	else {
+		return this.replace(/%s/,args);
+	}
+}
+
+String.prototype.fromId = function () {
+	return this.replace(/^#/,'');
+}
