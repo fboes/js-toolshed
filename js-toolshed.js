@@ -18,7 +18,7 @@ Number.prototype.toFixedString = function (digits) {
 	return thisString;
 };
 
-Math.prototype.roundPrecision = function (val, precision) {
+Math.roundPrecision = function (val, precision) {
 	return Math.round(val * Math.pow(10,precision)) / Math.pow(10,precision);
 };
 
