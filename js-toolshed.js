@@ -18,6 +18,10 @@ Number.prototype.toFixedString = function (digits) {
 	return thisString;
 };
 
+Math.prototype.roundPrecision = function (val, precision) {
+	return Math.round(val * Math.pow(10,precision)) / Math.pow(10,precision);
+};
+
 Array.prototype.pushOnNotEmpty = function (element) {
 	return (element)
 		? this.push(element)
