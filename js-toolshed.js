@@ -44,3 +44,17 @@ String.prototype.sprintf = function (args) {
 String.prototype.fromId = function () {
 	return this.replace(/^#/,'');
 }
+
+DateSetFromIsoString = function (dateString) {
+	var that = new Date();
+	var dateValues = dateString.match(/^(\d+)\-(\d+)\-(\d+).(\d+):(\d+):(\d+)(\+|\-)(\d+):(\d+)/);
+	if (dateValues) {
+		that.setUTCFullYear(dateValues[1]);
+		that.setUTCMonth(dateValues[2] - 1);
+		that.setUTCDate( dateValues[3]);
+		that.setUTCHours((dateValues[7] === '+') ? dateValues[4] - dateValues[8] : dateValues[4] + dateValues[8]);
+		that.setUTCMinutes((dateValues[7] === '+') ? dateValues[5] - dateValues[9] : dateValues[5] - dateValues[9]);
+		that.setUTCSeconds(dateValues[6]);
+	}
+	return that;
+}
