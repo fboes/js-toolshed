@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<title>*</title>
+	<meta charset="utf-8" />
+
+</head>
+<body>
+	<div id="container">
+		<div id="banner" class="header">
+			<header role="banner"><!-- --></header>
+		</div>
+		<div id="navigation" class="nav">
+			<nav role="navigation"><!-- --></nav>
+		</div>
+		<div id="main" class="main" onclick="this.animateHeight('300px','0px').animateBackground('red','blue').animateWidth('300px','500px').animateOpacity('1','0.5');">
+			<main role="main">
+				Hier kommt der Content<br />
+				ghdgjhd
+			</main>
+		</div>
+		<div id="sidebar" class="aside">
+			<aside role="complementary"><!-- --></aside>
+		</div>
+		<div id="footer" class="footer" onclick="this.animateProp('background','green','yellow')">
+			<footer role="contentinfo">
+				Bli bli bli
+			</footer>
+		</div>
+	</div>
+	<script src="css3-animate.js"></script>
+	<script>
+		document.getElementById('main').animateBackground('red');
+	</script>
+</body>
+</html>
