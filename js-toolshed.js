@@ -60,3 +60,13 @@ DateSetFromIsoString = function (dateString) {
 	}
 	return null;
 }
+
+Node.prototype.toggleClassName = function (classname) {
+	classname = classname;
+	if (this.className.indexOf(classname) >= 0) {
+		this.className = this.className.replace(new RegExp('\\s?' + classname), '');
+	} else {
+		this.className += ((this.className != '') ? ' ' : '') + classname;
+	}
+	return this;
+}

@@ -3,23 +3,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test Javascript</title>
+	<style>
+		#main {
+			transition:all 0.5s ease;
+			height:200px;
+			background:red;
+		}
+		#main.secondary {
+			height:400px;
+			background:blue;
+		}
+	</style>
 </head>
 <body>
-	<form>
-		<div>
-			<label for="textarea">Textarea (<output for="textarea"></output>)</label>
-			<textarea maxlength="150" name="textarea" id="textarea"></textarea>
-		</div>
-		<div>
-			<label for="range">Range (<output for="range"></output>)</label>
-			<input type="range" max="100" min="0" step="1" value="50" name="range" id="range">
-		</div>
-		<div>
-			<label for="range-2">Range</label>
-			<input type="range" max="100" min="0" step="1" value="50" name="range-2" id="range-2">
-			<input for="range-2" id="range-2-output" name="range-2-output" type="number" max="100" min="0" step="1" value="50" />
-		</div>
-	</form>
+	<div id="main" onclick="this.toggleClassName('secondary')">
+		<form>
+			<div>
+				<label for="textarea">Textarea (<output for="textarea"></output>)</label>
+				<textarea maxlength="150" name="textarea" id="textarea"></textarea>
+			</div>
+			<div>
+				<label for="range">Range (<output for="range"></output>)</label>
+				<input type="range" max="100" min="0" step="1" value="50" name="range" id="range">
+			</div>
+			<div>
+				<label for="range-2">Range</label>
+				<input type="range" max="100" min="0" step="1" value="50" name="range-2" id="range-2">
+				<input for="range-2" id="range-2-output" name="range-2-output" type="number" max="100" min="0" step="1" value="50" />
+			</div>
+		</form>
+	</div>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="jquery-toolshed.js"></script>
