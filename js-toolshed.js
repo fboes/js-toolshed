@@ -45,6 +45,12 @@ String.prototype.fromId = function () {
 	return this.replace(/^#/,'');
 }
 
+if (!String.prototype.trim) {
+	String.prototype.trim = function () {
+		return this.replace(/^\s+|\s+$/g, '');
+	}
+}
+
 DateSetFromIsoString = function (dateString) {
 	var dateValues = dateString.match(/^(\d+)\-(\d+)\-(\d+).(\d+):(\d+):(\d+)(\+|\-)(\d+):(\d+)/);
 	if (dateValues) {
@@ -61,12 +67,36 @@ DateSetFromIsoString = function (dateString) {
 	return null;
 }
 
-Node.prototype.toggleClassName = function (classname) {
-	classname = classname;
-	if (this.className.indexOf(classname) >= 0) {
-		this.className = this.className.replace(new RegExp('\\s?' + classname), '');
+Node.prototype.hasClassName = function (className) {
+	if (this.classList) {
+		return this.classList.contains(className);
 	} else {
-		this.className += ((this.className != '') ? ' ' : '') + classname;
+		return (this.className.match(new RegExp('(^|\\s)'+className+'(\\s|$)','g')));
+	}
+}
+
+Node.prototype.addClassName = function (className) {
+	if (this.classList) {
+		this.classList.add(className);
+	} else {
+		this.className += ((this.className != '') ? ' ' : '') + className;
 	}
 	return this;
+}
+
+Node.prototype.removeClassName = function (className) {
+	if (this.classList) {
+		this.classList.remove(className);
+	} else {
+		this.className = this.className.replace(new RegExp('\\s?' + className), '');
+	}
+	return this;
+}
+
+Node.prototype.toggleClassName = function (className) {
+	if (this.hasClassName(className)) {
+		return this.removeClassName(className);
+	} else {
+		return this.addClassName(className);
+	}
 }

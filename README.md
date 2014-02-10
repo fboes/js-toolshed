@@ -3,6 +3,8 @@ js-toolshed
 
 Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.
 
+You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
+
 Legal stuff
 -----------
 
