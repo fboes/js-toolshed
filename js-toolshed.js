@@ -100,3 +100,31 @@ Node.prototype.toggleClassName = function (className) {
 		return this.addClassName(className);
 	}
 }
+
+Node.prototype.addEvent = function ( type, fn ) {
+	if (this.addEventListener) {
+		this.addEventListener( type, fn, false );
+	} else if (this.attachEvent) {
+		this["e"+type+fn] = fn;
+		this[type+fn] = function() { this["e"+type+fn]( window.event ); }
+		this.attachEvent( "on"+type, this[type+fn] );
+	}
+	return this;
+}
+
+Node.prototype.removeEvent = function ( type, fn ) {
+	if (this.removeEventListener) {
+		this.removeEventListener( type, fn, false );
+	} else if (this.detachEvent) {
+		this.detachEvent( "on"+type, this[type+fn] );
+		this[type+fn] = null;
+		this["e"+type+fn] = null;
+	}
+	return this;
+}
+
+if (typeof console == "undefined" || typeof console.log == "undefined") {
+	var console = {
+		log: function() {}
+	};
+}

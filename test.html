@@ -23,7 +23,7 @@
 		<div id="navigation" class="nav">
 			<nav role="navigation"><!-- --></nav>
 		</div>
-		<div id="main" class="main" onclick="this.toggleClassName('secondary')">
+		<div id="main" class="main">
 			<main role="main">
 				<form>
 					<div>
@@ -72,6 +72,10 @@
 	a.pushOnNotEmpty('');
 	a.pushOnNotEmpty('x');
 	console.log(a);
+
+	document.getElementById('main').addEvent('click', function() {
+		this.toggleClassName('secondary')
+	});
 
 	console.log(DateSetFromIsoString('2013-09-18T14:00:00+02:00').toUTCString());
 	/*]]>*/</script>
