@@ -55,6 +55,10 @@
 	<script>/*<![CDATA[*/
 	$('textarea').activateAutosizeTextarea().activateMaxlengthOutput();
 	$('input[type="range"]').activateRangeOutput();
+	$('#banner').getScriptWithCache('test/test.js', function() {
+		$(this).html('Script has loaded &amp; callback fired!');
+	});
+
 	/*]]>*/</script>
 
 

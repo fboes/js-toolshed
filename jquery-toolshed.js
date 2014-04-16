@@ -89,6 +89,18 @@
 		})
 	};
 
+	$.fn.getScriptWithCache = function (url, callback) {
+		if (this.length) {
+			jQuery.ajax({
+				url: url,
+				dataType: "script",
+				cache: true
+			}).done(
+				this.each(callback)
+			);
+		}
+		return this;
+	};
 })(jQuery);
 
 
