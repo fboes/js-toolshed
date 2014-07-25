@@ -5,6 +5,11 @@ Javascript Toolshed adds some basic methods to already existing JS prototypes / 
 
 You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
 
+Version
+-------
+
+Version: 0.1 (2014-07-25)
+
 Legal stuff
 -----------
 
