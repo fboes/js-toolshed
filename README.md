@@ -8,7 +8,12 @@ You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightn
 Version
 -------
 
-Version: 0.1 (2014-07-25)
+Version: 0.1.1 (2014-11-25)
+
+Installation
+------------
+
+Via [Bower](http://bower.io/): `bower install fboes/js-toolshed`
 
 Legal stuff
 -----------

@@ -1,0 +1,21 @@
+{
+  "name": "js-toolshed",
+  "main": "js-toolshed.js",
+  "version": "0.1.1",
+  "homepage": "https://github.com/fboes/js-toolshed",
+  "authors": [
+    "Frank Boës <http://3960.org>"
+  ],
+  "description": "Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.",
+  "keywords": [
+    "Javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
