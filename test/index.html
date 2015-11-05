@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Javascript</title>
+	<style>
+		#main {
+			transition:all 0.5s ease;
+			height:200px;
+			background:red;
+		}
+		#main.secondary {
+			height:400px;
+			background:blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="banner" class="header">
+			<header role="banner"><!-- --></header>
+		</div>
+		<div id="navigation" class="nav">
+			<nav role="navigation"><!-- --></nav>
+		</div>
+		<div id="main" class="main">
+			<main role="main">
+				<form>
+					<div>
+						<label for="textarea">Textarea (<output for="textarea"></output>)</label>
+						<textarea maxlength="150" name="textarea" id="textarea"></textarea>
+					</div>
+					<div>
+						<label for="range">Range (<output for="range"></output>)</label>
+						<input type="range" max="100" min="0" step="1" value="50" name="range" id="range">
+					</div>
+					<div>
+						<label for="range-2">Range</label>
+						<input type="range" max="100" min="0" step="1" value="50" name="range-2" id="range-2">
+						<input for="range-2" id="range-2-output" name="range-2-output" type="number" max="100" min="0" step="1" value="50" />
+					</div>
+				</form>
+			</main>
+		</div>
+		<div id="sidebar" class="aside">
+			<aside role="complementary"><!-- --></aside>
+		</div>
+		<div id="footer" class="footer">
+			<footer role="contentinfo"><!-- --></footer>
+		</div>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script src="../build/jquery-toolshed.js"></script>
+	<script>/*<![CDATA[*/
+	$('textarea').activateAutosizeTextarea().activateMaxlengthOutput();
+	$('input[type="range"]').activateRangeOutput();
+	$('#banner').getScriptWithCache('index.js', function() {
+		$(this).html('Script has loaded &amp; callback fired!');
+	});
+
+	/*]]>*/</script>
+
+
+	<script src="../build/js-toolshed.js"></script>
+	<script>/*<![CDATA[*/
+	var i = 23.456;
+	console.log(i.toFixedString(3));
+	console.log('#abc'.fromId());
+	console.log('There are %s monkeys in the forest'.sprintf(2));
+
+	console.log(Math.roundPrecision(22.673667, 2));
+
+	var a = [];
+	a.pushOnNotEmpty(1);
+	a.pushOnNotEmpty('');
+	a.pushOnNotEmpty('x');
+	console.log(a);
+
+	document.getElementById('main').addEvent('click', function() {
+		this.toggleClassName('secondary')
+	});
+
+	console.log(DateSetFromIsoString('2013-09-18T14:00:00+02:00').toUTCString());
+	/*]]>*/</script>
+</body>
+</html>
