@@ -1,6 +1,6 @@
 {
   "name": "js-toolshed",
-  "description": "HTML5Form functionality to mimic Excel functionality. Serves also as form validator.",
+  "description": "Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.",
   "version": "1.0.0",
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 {
   "name": "js-toolshed",
   "main": "js-toolshed.js",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/fboes/js-toolshed",
   "authors": [
     "Frank Boës <http://3960.org>"

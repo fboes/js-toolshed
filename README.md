@@ -8,7 +8,7 @@ You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightn
 Version
 -------
 
-Version: 0.1.1 (2014-11-25)
+Version: 1.0.0 (2015-11-05)
 
 Installation
 ------------
