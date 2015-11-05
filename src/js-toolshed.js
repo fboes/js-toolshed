@@ -81,7 +81,7 @@ DateSetFromIsoString = function (dateString) {
 	return null;
 };
 
-Node.prototype.hasClassName = function (className) {
+Element.prototype.hasClassName = function (className) {
 	'use strict';
 	if (this.classList) {
 		return this.classList.contains(className);
@@ -90,7 +90,7 @@ Node.prototype.hasClassName = function (className) {
 	}
 };
 
-Node.prototype.addClassName = function (className) {
+Element.prototype.addClassName = function (className) {
 	'use strict';
 	if (this.classList) {
 		this.classList.add(className);
@@ -100,7 +100,7 @@ Node.prototype.addClassName = function (className) {
 	return this;
 };
 
-Node.prototype.removeClassName = function (className) {
+Element.prototype.removeClassName = function (className) {
 	'use strict';
 	if (this.classList) {
 		this.classList.remove(className);
@@ -110,7 +110,7 @@ Node.prototype.removeClassName = function (className) {
 	return this;
 };
 
-Node.prototype.toggleClassName = function (className) {
+Element.prototype.toggleClassName = function (className) {
 	'use strict';
 	if (this.hasClassName(className)) {
 		return this.removeClassName(className);
