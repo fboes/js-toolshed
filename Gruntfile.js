@@ -60,11 +60,9 @@ module.exports = function(grunt) {
 	});
 
 	// Load the plugins
-	require('jit-grunt')(grunt, {
-		replace: 'grunt-text-replace',
-		postcss: 'grunt-postcss'
-	});
+	require('jit-grunt')(grunt);
 
 	// Default task(s).
 	grunt.registerTask('build-js',    ['jshint','uglify']);
+	grunt.registerTask('default',     ['jshint','uglify']);
 };

@@ -145,6 +145,8 @@ Node.prototype.removeEvent = function ( type, fn ) {
 
 if (typeof console == "undefined" || typeof console.log == "undefined") {
 	var console = {
-		log: function() {}
+		log: function() {},
+		warn: function() {},
+		error: function() {}
 	};
 }
