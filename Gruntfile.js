@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		dirs: {
 			source:   'src/',
 			build:    'build/',
-			test:    'test/'
+			test:     'test/'
 		},
 
 		jshint: {

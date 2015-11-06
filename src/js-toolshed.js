@@ -1,3 +1,8 @@
+/**
+ * Convert a number to a string representation with a fixed with, e.g. by padding it with `0`
+ * @param  {integer} digits number of characters
+ * @return {string}         [description]
+ */
 Number.prototype.toFixedString = function (digits) {
 	'use strict';
 	var thisString = Math.abs(this).toString(),i;
@@ -19,16 +24,31 @@ Number.prototype.toFixedString = function (digits) {
 	return thisString;
 };
 
+/**
+ * Round number to a given number of decimals
+ * @param  {number}  val       [description]
+ * @param  {integer} precision [description]
+ * @return {number}            [description]
+ */
 Math.roundPrecision = function (val, precision) {
 	'use strict';
 	return Math.round(val * Math.pow(10,precision)) / Math.pow(10,precision);
 };
 
+/**
+ * Push element only to array if element is not empty
+ * @param  {mixed}    element [description]
+ * @return {this}             [description]
+ */
 Array.prototype.pushOnNotEmpty = function (element) {
 	'use strict';
 	return (element) ? this.push(element) : this.length;
 };
 
+/**
+ * Get average of all numbers in an array
+ * @return {this}           [description]
+ */
 Array.prototype.average = function () {
 	'use strict';
 	var sum = 0, i;
@@ -52,18 +72,31 @@ String.prototype.sprintf = function (args) {
 	}
 };
 
+/**
+ * Convert '#string' into 'string'
+ * @return {this}           [description]
+ */
 String.prototype.fromId = function () {
 	'use strict';
 	return this.replace(/^#/,'');
 };
 
 if (!String.prototype.trim) {
+	/**
+	 * Remove whitespaces around string
+	 * @return {this}           [description]
+	 */
 	String.prototype.trim = function () {
 		'use strict';
 		return this.replace(/^\s+|\s+$/g, '');
 	};
 }
 
+/**
+ * Convert given string into Date object
+ * @param  {string} dateString like '2015-11-06 13:21:00'
+ * @return {Date}              [description]
+ */
 DateSetFromIsoString = function (dateString) {
 	'use strict';
 	var dateValues = dateString.match(/^(\d+)\-(\d+)\-(\d+).(\d+):(\d+):(\d+)(\+|\-)(\d+):(\d+)/);
@@ -81,6 +114,11 @@ DateSetFromIsoString = function (dateString) {
 	return null;
 };
 
+/**
+ * Check if element has a given classname in its class attribute
+ * @param  {string}  className [description]
+ * @return {Boolean}           [description]
+ */
 Element.prototype.hasClassName = function (className) {
 	'use strict';
 	if (this.classList) {
@@ -90,6 +128,11 @@ Element.prototype.hasClassName = function (className) {
 	}
 };
 
+/**
+ * Add classname to given element
+ * @param  {string} className [description]
+ * @return {this}             [description]
+ */
 Element.prototype.addClassName = function (className) {
 	'use strict';
 	if (this.classList) {
@@ -100,6 +143,11 @@ Element.prototype.addClassName = function (className) {
 	return this;
 };
 
+/**
+ * Remove classname from given element
+ * @param  {string} className [description]
+ * @return {this}             [description]
+ */
 Element.prototype.removeClassName = function (className) {
 	'use strict';
 	if (this.classList) {
@@ -110,6 +158,11 @@ Element.prototype.removeClassName = function (className) {
 	return this;
 };
 
+/**
+ * Remove classname from element if present, add classname if not present
+ * @param  {string} className [description]
+ * @return {this}             [description]
+ */
 Element.prototype.toggleClassName = function (className) {
 	'use strict';
 	if (this.hasClassName(className)) {
@@ -119,6 +172,12 @@ Element.prototype.toggleClassName = function (className) {
 	}
 };
 
+/**
+ * Add an event
+ * @param {string}   type [description]
+ * @param {Function} fn   [description]
+ * @return {this}         [description]
+ */
 Node.prototype.addEvent = function ( type, fn ) {
 	'use strict';
 	if (this.addEventListener) {
@@ -131,6 +190,12 @@ Node.prototype.addEvent = function ( type, fn ) {
 	return this;
 };
 
+/**
+ * Remove an event
+ * @param {string}   type [description]
+ * @param {Function} fn   [description]
+ * @return {this}         [description]
+ */
 Node.prototype.removeEvent = function ( type, fn ) {
 	'use strict';
 	if (this.removeEventListener) {
