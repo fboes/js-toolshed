@@ -58,22 +58,24 @@ Array.prototype.average = function () {
 	return sum/this.length;
 };
 
-String.prototype.sprintf = function (args) {
+/**
+ * Replace `%s` in given string with parameters
+ * @param  {scalar}  args One or morge arguments
+ * @return {this}         [description]
+ */
+String.prototype.sprintf = function () {
 	'use strict';
-	var i;
-	if (args && typeof args === 'object') {
-		for (i = 0; i < args.length; ++i) {
-			this.sprintf(args[i]);
+	var i, that = this;
+	if (arguments) {
+		for (i = 0; i < arguments.length; ++i) {
+			that = that.replace(/%s/,arguments[i]);
 		}
-		return this;
 	}
-	else {
-		return this.replace(/%s/,args);
-	}
+	return that;
 };
 
 /**
- * Convert '#string' into 'string'
+ * Convert `#string` into `string`
  * @return {this}           [description]
  */
 String.prototype.fromId = function () {
@@ -93,8 +95,8 @@ if (!String.prototype.trim) {
 }
 
 /**
- * Convert given string into Date object
- * @param  {string} dateString like '2015-11-06 13:21:00'
+ * Convert given UTC string into Date object
+ * @param  {string} dateString like '2015-11-06 13:21:00+02:00'
  * @return {Date}              [description]
  */
 DateSetFromIsoString = function (dateString) {

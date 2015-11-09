@@ -5,15 +5,31 @@ Javascript Toolshed adds some basic methods to already existing JS prototypes / 
 
 You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
 
-Version
--------
-
-Version: 1.0.0 (2015-11-05)
 
 Installation
 ------------
 
 Via [Bower](http://bower.io/): `bower install fboes/js-toolshed`
+
+1. Copy [build/js-toolshed.js](build/js-toolshed.js) to your local JS directory.
+2. Load Toolshed via `<script src="js-toolshed.js"></script>`
+
+Documentation
+-------------
+
+See the [inline documentation](src/js-toolshed.js) for new methods to use.
+
+* `Math`- & `Number`-methods for rounding and styled output of numbers
+* `Array`-methods for smart adding of new values and fast manipulation of values
+* `String`-methods
+* An improved `Date`-object acting as a parser for ISO-formatted dates
+* `Elemente`-methods for class- and event-manipulation
+* A stub `console` to remove warnings in old browsers for missing console
+
+Version
+-------
+
+Version: 1.0.0 (2015-11-05)
 
 Legal stuff
 -----------
