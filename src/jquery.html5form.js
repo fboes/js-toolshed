@@ -1,6 +1,12 @@
 (function ($) {
 	'use strict';
-	$.fn.html5form = function ( fn ) {
+	/**
+	 * Invoke HTML5Form auto updater
+	 * @param  {Function} fn               This function will be exectuted after change of form elements. In this function `this` will be the html5form.main object. You can access `this.strings` and `this.numbers` for string and numerical represntation of form.
+	 * @param  {string}   decimalSeparator Optional: This will be used to convert string represnations of numbers
+	 * @return {this}                      Chainable element
+	 */
+	$.fn.html5form = function ( fn, decimalSeparator ) {
 		return this.each(function() {
 			var main = {
 				el : null,
@@ -161,6 +167,11 @@
 					}
 					return this;
 				},
+				/**
+				 * Set value of form field or HTML tag. This will convert decimal separator if it is defined
+				 * @param {string} id    [description]
+				 * @param {mixed}  value [description]
+				 */
 				setValueById : function (id, value) {
 					var elOut = $('#'+id);
 					if (elOut.length) {
@@ -168,11 +179,18 @@
 							this.setValue(elOut, value);
 						}
 						else {
+							if (decimalSeparator !== undefined) {
+								value = String(value).replace(/\./,decimalSeparator);
+							}
 							elOut.html(value);
 						}
 					}
 					return elOut;
 				},
+				/**
+				 * Check if form has an error
+				 * @return {Boolean} [description]
+				 */
 				hasError : function () {
 					return (this.el.find('.form-field.error').length > 0);
 				}
@@ -181,6 +199,11 @@
 			main.init($(this));
 		});
 	};
+	/**
+	 * Toggle `required` attribute and corresponding classes for given form field
+	 * @param  {boolean} cond [description]
+	 * @return {this}        [description]
+	 */
 	$.fn.toggleRequired = function ( cond ) {
 		return this.each(function() {
 			if (cond === undefined) {
