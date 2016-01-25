@@ -6,7 +6,7 @@
 	 * @param  {string}   decimalSeparator Optional: This will be used to convert string represnations of numbers
 	 * @return {this}                      Chainable element
 	 */
-	$.fn.html5form = function ( fn, decimalSeparator ) {
+	$.fn.html5form = function ( fn, decimalSeparator, thousandSeparator ) {
 		return this.each(function() {
 			var main = {
 				el : null,
@@ -150,16 +150,24 @@
 				},
 				_setValue : function (name, value, type) {
 					var num;
-					if (type === 'date') {
-						var date = value.split(/[^\d]/);
-						num = Math.round(new Date(date[0],date[1],date[2]).getTime() / 1000);
-					}
-					else if (type === 'time') {
-						var time = value.split(/[^\d]/);
-						num = (Number(time[0]) * 60) + Number(time[1]);
-					}
-					else {
-						num = Number(value);
+					switch (type) {
+						case 'date':
+						case 'month':
+						case 'datetime-local':
+							var date = value.split(/[^\d]/);
+							if (date[2] === undefined) { date[2] = 0; }
+							if (date[3] === undefined) { date[3] = 0; }
+							if (date[4] === undefined) { date[4] = 0; }
+							console.log(date);
+							num = Math.round(new Date(date[0],date[1],date[2],date[3],date[4]).getTime() / 1000);
+							break;
+						case 'time':
+							var time = value.split(/[^\d]/);
+							num = (Number(time[0]) * 60) + Number(time[1]);
+							break;
+						default:
+							num = Number(value);
+							break;
 					}
 					this.strings[name] = value;
 					if (!isNaN(num)) {
@@ -181,6 +189,9 @@
 						else {
 							if (decimalSeparator !== undefined) {
 								value = String(value).replace(/\./,decimalSeparator);
+							}
+							if (thousandSeparator !== undefined) {
+								value = String(value).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1"+thousandSeparator);
 							}
 							elOut.html(value);
 						}
