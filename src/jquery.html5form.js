@@ -171,7 +171,7 @@
 							num = (Number(time[0]) * 60) + Number(time[1]);
 							break;
 						default:
-							num = (Object.prototype.toString.call(value) === '[object Array]') ? value.reduce(function(a, b) { return Number(a) + Number(b); }, 0) : Number(value);
+							num = (value.constructor === Array) ? value.reduce(function(a, b) { return Number(a) + Number(b); }, 0) : Number(value);
 							break;
 					}
 					this.strings[name] = value;
