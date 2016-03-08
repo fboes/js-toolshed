@@ -83,17 +83,6 @@ String.prototype.fromId = function () {
 	return this.replace(/^#/,'');
 };
 
-if (!String.prototype.trim) {
-	/**
-	 * Remove whitespaces around string
-	 * @return {this}           [description]
-	 */
-	String.prototype.trim = function () {
-		'use strict';
-		return this.replace(/^\s+|\s+$/g, '');
-	};
-}
-
 /**
  * Convert given UTC string into Date object
  * @param  {string} dateString like '2015-11-06 13:21:00+02:00'
@@ -209,11 +198,3 @@ Node.prototype.removeEvent = function ( type, fn ) {
 	}
 	return this;
 };
-
-if (typeof console == "undefined" || typeof console.log == "undefined") {
-	var console = {
-		log: function() {},
-		warn: function() {},
-		error: function() {}
-	};
-}

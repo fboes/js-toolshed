@@ -63,6 +63,7 @@
 
 
 	<script src="../build/js-toolshed.js"></script>
+	<script src="../build/js-legacy.js"></script>
 	<script>/*<![CDATA[*/
 	var i = 23.456;
 	console.log(i.toFixedString(3));
@@ -83,6 +84,15 @@
 	});
 
 	console.log(DateSetFromIsoString('2013-09-18T14:00:00+02:00').toUTCString());
+
+	var b = document.getElementById('textarea');
+	console.log([
+		b,
+		b.closest('#textarea'),
+		b.closest('#textarea', true),
+		b.closest('.main'),
+		b.closest('.main', true)
+	]);
 	/*]]>*/</script>
 </body>
 </html>

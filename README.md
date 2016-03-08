@@ -26,10 +26,13 @@ See the [inline documentation](src/js-toolshed.js) for new methods to use.
 * `Elemente`-methods for class- and event-manipulation
 * A stub `console` to remove warnings in old browsers for missing console
 
+There is also [a small polyfill](src/js-legacy.js) to give older browsers some new Javascript methods.
+
+
 Version
 -------
 
-Version: 1.0.0 (2015-11-05)
+Version: 1.1.0 (2016-03-08)
 
 Legal stuff
 -----------

@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 			},
 			livereload: {
 				options: {livereload: true},
-				files: ['<%= dirs.template %>*.html','<%= dirs.template %>images/*']
+				files: ['<%= dirs.test %>*.html','<%= dirs.test %>images/*']
 			}
 		}
 	});
