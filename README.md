@@ -1,6 +1,8 @@
 js-toolshed
 ===========
 
+[![devDependency Status](https://david-dm.org/fboes/js-toolshed/dev-status.svg)](https://david-dm.org/fboes/js-toolshed#info=devDependencies)
+
 Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.
 
 You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
