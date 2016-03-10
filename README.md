@@ -5,8 +5,7 @@ js-toolshed
 
 Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.
 
-You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
-
+And remember: [You might not need jQuery](docs/no-jquery.js).
 
 Installation
 ------------
@@ -29,7 +28,6 @@ See the [inline documentation](src/js-toolshed.js) for new methods to use.
 * A stub `console` to remove warnings in old browsers for missing console
 
 There is also [a small polyfill](src/js-legacy.js) to give older browsers some new Javascript methods.
-
 
 Version
 -------
