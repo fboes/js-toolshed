@@ -93,6 +93,13 @@
 		b.closest('.main'),
 		b.closest('.main', true)
 	]);
+
+	var c = document.querySelectorAll('div');
+	console.log(c);
+	c.forEach(function(index) {
+		console.log(index);
+		this.addClassName('i-am-div');
+	})
 	/*]]>*/</script>
 </body>
 </html>

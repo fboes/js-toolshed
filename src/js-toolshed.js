@@ -198,3 +198,17 @@ Node.prototype.removeEvent = function ( type, fn ) {
 	}
 	return this;
 };
+
+/**
+ * Alter all Nodes contained in a NodeList. Add a function() {}, where `this` is a single node, and the first parameter is the current index.
+ * @param  {Function} fn [description]
+ * @return {[type]}      [description]
+ */
+NodeList.prototype.forEach = function ( fn ) {
+	'use strict';
+	var i;
+	for (i = 0; i < this.length; i++) {
+		fn.call(this[i],i);
+	}
+	return this;
+};
