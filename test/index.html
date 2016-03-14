@@ -65,41 +65,43 @@
 	<script src="../build/js-toolshed.js"></script>
 	<script src="../build/js-legacy.js"></script>
 	<script>/*<![CDATA[*/
-	var i = 23.456;
-	console.log(i.toFixedString(3));
-	console.log('#abc'.fromId());
-	console.log('There are %s monkeys in the forest'.sprintf(2));
-	console.log('%s monkeys cost %s'.sprintf(2,3));
+	document.ready(function() {
+		var i = 23.456;
+		console.log(i.toFixedString(3));
+		console.log('#abc'.fromId());
+		console.log('There are %s monkeys in the forest'.sprintf(2));
+		console.log('%s monkeys cost %s'.sprintf(2,3));
 
-	console.log(Math.roundPrecision(22.673667, 2));
+		console.log(Math.roundPrecision(22.673667, 2));
 
-	var a = [];
-	a.pushOnNotEmpty(1);
-	a.pushOnNotEmpty('');
-	a.pushOnNotEmpty('x');
-	console.log(a);
+		var a = [];
+		a.pushOnNotEmpty(1);
+		a.pushOnNotEmpty('');
+		a.pushOnNotEmpty('x');
+		console.log(a);
 
-	document.getElementById('main').addEvent('click', function() {
-		this.toggleClassName('secondary')
+		document.getElementById('main').addEvent('click', function() {
+			this.toggleClassName('secondary')
+		});
+
+		console.log(DateSetFromIsoString('2013-09-18T14:00:00+02:00').toUTCString());
+
+		var b = document.getElementById('textarea');
+		console.log([
+			b,
+			b.closest('#textarea'),
+			b.closest('#textarea', true),
+			b.closest('.main'),
+			b.closest('.main', true)
+		]);
+
+		var c = document.querySelectorAll('div');
+		console.log(c);
+		c.forEach(function(index) {
+			console.log(index);
+			this.addClassName('i-am-div');
+		});
 	});
-
-	console.log(DateSetFromIsoString('2013-09-18T14:00:00+02:00').toUTCString());
-
-	var b = document.getElementById('textarea');
-	console.log([
-		b,
-		b.closest('#textarea'),
-		b.closest('#textarea', true),
-		b.closest('.main'),
-		b.closest('.main', true)
-	]);
-
-	var c = document.querySelectorAll('div');
-	console.log(c);
-	c.forEach(function(index) {
-		console.log(index);
-		this.addClassName('i-am-div');
-	})
 	/*]]>*/</script>
 </body>
 </html>

@@ -201,14 +201,37 @@ Node.prototype.removeEvent = function ( type, fn ) {
 
 /**
  * Alter all Nodes contained in a NodeList. Add a function() {}, where `this` is a single node, and the first parameter is the current index.
- * @param  {Function} fn [description]
- * @return {[type]}      [description]
+ * @param  {Function} fn  [description]
+ * @return {this}         [description]
  */
 NodeList.prototype.forEach = function ( fn ) {
 	'use strict';
 	var i;
 	for (i = 0; i < this.length; i++) {
 		fn.call(this[i],i);
+	}
+	return this;
+};
+
+/**
+ * Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
+ * @param  {Function} fn  [description]
+ * @return {this}         [description]
+ */
+Document.prototype.ready = function (fn) {
+	'use strict';
+	if (document.readyState != 'loading'){
+		fn();
+	}
+	else if (document.addEventListener) {
+		document.addEventListener('DOMContentLoaded', fn);
+	}
+	else {
+		document.attachEvent('onreadystatechange', function() {
+			if (document.readyState != 'loading') {
+				fn();
+			}
+		});
 	}
 	return this;
 };
