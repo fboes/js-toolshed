@@ -19,15 +19,11 @@ if (!Element.prototype.matches) {
 if (!Element.prototype.closest) {
 	/**
 	 * Find closest match to given selector, starting at current element and traversing up
-	 * @param  {bool}   includeSelf include yourself. Defaulty to false
 	 * @return {this}   [description]
 	 */
 	Element.prototype.closest = function (selector) {
 		'use strict';
 		var el = this;
-		if (!includeSelf) {
-			el = el.parentNode;
-		}
 		while (!el.matches(selector)) {
 			el = el.parentNode;
 			if (el.tagName === undefined) {
