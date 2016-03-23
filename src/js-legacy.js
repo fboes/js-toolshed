@@ -72,9 +72,7 @@ if (!EventTarget.prototype.removeEventListener) {
 	 */
 	EventTarget.prototype.removeEventListener = function ( type, fn ) {
 		'use strict';
-		if (this.removeEventListener) {
-			this.removeEventListener( type, fn, false );
-		} else if (this.detachEvent) {
+		if (this.detachEvent) {
 			this.detachEvent( "on"+type, this[type+fn] );
 			this[type+fn] = null;
 			this["e"+type+fn] = null;
