@@ -235,3 +235,18 @@ Document.prototype.ready = function (fn) {
 	}
 	return this;
 };
+
+/**
+ * Walk all properties of an object. Use function(value,key,object){} to access properties of your object
+ * @param  {Function} fn  [description]
+ * @return {this}         [description]
+ */
+Object.prototype.map = function (fn) {
+	'use strict';
+	var key;
+	for (key in this) {
+		if (!this.hasOwnProperty(key)) {continue;}
+		fn.call(this,this[key],key,this);
+	}
+	return this;
+};

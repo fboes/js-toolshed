@@ -2,29 +2,27 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Test Javascript</title>
+	<title>JS Toolshed Test Page</title>
 	<style>
-		#main {
-			transition:all 0.5s ease;
-			height:200px;
-			background:red;
-		}
-		#main.secondary {
-			height:400px;
-			background:blue;
-		}
+		* { box-sizing: border-box; }
+		body {background:#eee;font: 14px/1 Tahoma, sans-serif;}
+		#container {background:white;padding:1em;margin:1em auto;max-width:50em;border:1px solid #ccc;}
+		label,textarea,input {display:block;width:99%;margin-bottom:1em;font-size:1em;font-family:inherit;}
+		textarea,input {background:rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.2);}
+		p {margin-bottom:1em;}
+		#main {transition:all 0.5s ease;background:transparent;}
+		#main.secondary {background:#efe;}
+		#footer {font-size:0.8em;margin-top:1em;padding-top:1em;border-top:1px dotted;color:rgba(0,0,0,0.5);text-align:right;}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<div id="banner" class="header">
-			<header role="banner"><!-- --></header>
-		</div>
-		<div id="navigation" class="nav">
-			<nav role="navigation"><!-- --></nav>
+			<header role="banner">JS Toolshed Test Page</header>
 		</div>
 		<div id="main" class="main">
 			<main role="main">
+				<p id="message"></p>
 				<form>
 					<div>
 						<label for="textarea">Textarea (<output for="textarea"></output>)</label>
@@ -42,11 +40,8 @@
 				</form>
 			</main>
 		</div>
-		<div id="sidebar" class="aside">
-			<aside role="complementary"><!-- --></aside>
-		</div>
 		<div id="footer" class="footer">
-			<footer role="contentinfo"><!-- --></footer>
+			<footer role="contentinfo">fboes</footer>
 		</div>
 	</div>
 
@@ -55,7 +50,7 @@
 	<script>/*<![CDATA[*/
 	$('textarea').activateAutosizeTextarea().activateMaxlengthOutput();
 	$('input[type="range"]').activateRangeOutput();
-	$('#banner').getScriptWithCache('index.js', function() {
+	$('#message').getScriptWithCache('index.js', function() {
 		$(this).html('Script has loaded &amp; callback fired!');
 	});
 
@@ -101,6 +96,18 @@
 			console.log(index);
 			this.addClassName('i-am-div');
 		});
+
+		var d = {
+			'a':1,
+			'b':2,
+			'c':3
+		}
+		console.log(Object.getPrototypeOf(d));
+		d.map(function(a,b) {
+			console.log(a,b);
+		});
+
+		document.getElementById('message').innerHTML = 'All scripts completed successfully';
 	});
 	/*]]>*/</script>
 </body>
