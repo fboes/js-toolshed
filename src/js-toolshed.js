@@ -1,3 +1,29 @@
+
+/**
+ * Replace `%s` in given string with parameters
+ * @param  {scalar}  args One or morge arguments
+ * @return {this}         [description]
+ */
+String.prototype.sprintf = function () {
+	'use strict';
+	var i, that = this;
+	if (arguments) {
+		for (i = 0; i < arguments.length; ++i) {
+			that = that.replace(/%[sd]/,arguments[i]);
+		}
+	}
+	return that;
+};
+
+/**
+ * Convert `#string` into `string`
+ * @return {this}           [description]
+ */
+String.prototype.fromId = function () {
+	'use strict';
+	return this.replace(/^#/,'');
+};
+
 /**
  * Convert a number to a string representation with a fixed with, e.g. by padding it with `0`
  * @param  {integer} digits number of characters
@@ -46,41 +72,18 @@ Array.prototype.pushOnNotEmpty = function (element) {
 };
 
 /**
- * Get average of all numbers in an array
- * @return {this}           [description]
- */
-Array.prototype.average = function () {
-	'use strict';
-	var sum = 0, i;
-	for(i = 0; i < this.length; i++ ){
-		sum += parseFloat( this[i], 10 );
-	}
-	return sum/this.length;
-};
-
-/**
- * Replace `%s` in given string with parameters
- * @param  {scalar}  args One or morge arguments
+ * Run function on all properties of an object.
+ * @param  {Function} fn  function(value,key,object){}, `this` being value
  * @return {this}         [description]
  */
-String.prototype.sprintf = function () {
+Object.prototype.forEachProperty = function (fn) {
 	'use strict';
-	var i, that = this;
-	if (arguments) {
-		for (i = 0; i < arguments.length; ++i) {
-			that = that.replace(/%s/,arguments[i]);
-		}
+	var key;
+	for (key in this) {
+		if (!this.hasOwnProperty(key)) {continue;}
+		fn.call(this,this[key],key,this);
 	}
-	return that;
-};
-
-/**
- * Convert `#string` into `string`
- * @return {this}           [description]
- */
-String.prototype.fromId = function () {
-	'use strict';
-	return this.replace(/^#/,'');
+	return this;
 };
 
 /**
@@ -164,51 +167,15 @@ Element.prototype.toggleClassName = function (className) {
 };
 
 /**
- * Add an event
- * @param {string}   type [description]
- * @param {Function} fn   [description]
+ * Run function with all Nodes contained in a NodeList.
+ * @param  {Function} fn  function(currentNode,index,NodeList){}, `this` being currentNode
  * @return {this}         [description]
  */
-Node.prototype.addEvent = function ( type, fn ) {
-	'use strict';
-	if (this.addEventListener) {
-		this.addEventListener( type, fn, false );
-	} else if (this.attachEvent) {
-		this["e"+type+fn] = fn;
-		this[type+fn] = function() { this["e"+type+fn]( window.event ); };
-		this.attachEvent( "on"+type, this[type+fn] );
-	}
-	return this;
-};
-
-/**
- * Remove an event
- * @param {string}   type [description]
- * @param {Function} fn   [description]
- * @return {this}         [description]
- */
-Node.prototype.removeEvent = function ( type, fn ) {
-	'use strict';
-	if (this.removeEventListener) {
-		this.removeEventListener( type, fn, false );
-	} else if (this.detachEvent) {
-		this.detachEvent( "on"+type, this[type+fn] );
-		this[type+fn] = null;
-		this["e"+type+fn] = null;
-	}
-	return this;
-};
-
-/**
- * Alter all Nodes contained in a NodeList. Add a function() {}, where `this` is a single node, and the first parameter is the current index.
- * @param  {Function} fn  [description]
- * @return {this}         [description]
- */
-NodeList.prototype.forEach = function ( fn ) {
+NodeList.prototype.forEachNode = function ( fn, thisArg ) {
 	'use strict';
 	var i;
 	for (i = 0; i < this.length; i++) {
-		fn.call(this[i],i);
+		fn.call(this[i],this[i],i,this);
 	}
 	return this;
 };
@@ -220,10 +187,7 @@ NodeList.prototype.forEach = function ( fn ) {
  */
 Document.prototype.ready = function (fn) {
 	'use strict';
-	if (document.readyState != 'loading'){
-		fn();
-	}
-	else if (document.addEventListener) {
+	if (document.addEventListener) {
 		document.addEventListener('DOMContentLoaded', fn);
 	}
 	else {
@@ -236,17 +200,3 @@ Document.prototype.ready = function (fn) {
 	return this;
 };
 
-/**
- * Walk all properties of an object. Use function(value,key,object){} to access properties of your object
- * @param  {Function} fn  [description]
- * @return {this}         [description]
- */
-Object.prototype.map = function (fn) {
-	'use strict';
-	var key;
-	for (key in this) {
-		if (!this.hasOwnProperty(key)) {continue;}
-		fn.call(this,this[key],key,this);
-	}
-	return this;
-};

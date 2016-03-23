@@ -31,6 +31,11 @@ How to do stuff
 * [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
 * [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
 
+#### Event handling
+
+* `EventTarget.addEventListener()`
+* `EventTarget.removeEventListener()`
+
 For other stuff you will find ample polyfills in [jquery-legacy.js](../src/jquery-legacy.js) and extensions of native protoypes in [jquery-toolshed.js](../src/jquery-toolshed.js).
 
 You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).

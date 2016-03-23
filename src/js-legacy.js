@@ -45,3 +45,40 @@ if (typeof console == "undefined" || typeof console.log == "undefined") {
 		error: function() {}
 	};
 }
+
+if (!EventTarget.prototype.addEventListener) {
+	/**
+	 * Add an event
+	 * @param {string}   type [description]
+	 * @param {Function} fn   [description]
+	 * @return {this}         [description]
+	 */
+	EventTarget.prototype.addEventListener = function ( type, fn ) {
+		'use strict';
+		if (this.attachEvent) {
+			this["e"+type+fn] = fn;
+			this[type+fn] = function() { this["e"+type+fn]( window.event ); };
+			this.attachEvent( "on"+type, this[type+fn] );
+		}
+		return this;
+	};
+}
+if (!EventTarget.prototype.removeEventListener) {
+	/**
+	 * Remove an event
+	 * @param {string}   type [description]
+	 * @param {Function} fn   [description]
+	 * @return {this}         [description]
+	 */
+	EventTarget.prototype.removeEventListener = function ( type, fn ) {
+		'use strict';
+		if (this.removeEventListener) {
+			this.removeEventListener( type, fn, false );
+		} else if (this.detachEvent) {
+			this.detachEvent( "on"+type, this[type+fn] );
+			this[type+fn] = null;
+			this["e"+type+fn] = null;
+		}
+		return this;
+	};
+}

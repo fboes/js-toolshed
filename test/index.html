@@ -75,7 +75,7 @@
 		a.pushOnNotEmpty('x');
 		console.log(a);
 
-		document.getElementById('main').addEvent('click', function() {
+		document.getElementById('main').addEventListener('click', function() {
 			this.toggleClassName('secondary')
 		});
 
@@ -92,7 +92,7 @@
 
 		var c = document.querySelectorAll('div');
 		console.log(c);
-		c.forEach(function(index) {
+		c.forEachNode(function(index) {
 			console.log(index);
 			this.addClassName('i-am-div');
 		});
@@ -103,7 +103,7 @@
 			'c':3
 		}
 		console.log(Object.getPrototypeOf(d));
-		d.map(function(a,b) {
+		d.forEachProperty(function(a,b) {
 			console.log(a,b);
 		});
 
