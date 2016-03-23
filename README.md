@@ -32,7 +32,7 @@ There is also [a small polyfill](src/js-legacy.js) to give older browsers some n
 Version
 -------
 
-Version: 1.1.0 (2016-03-08)
+Version: 1.2.0 (2016-03-23)
 
 Legal stuff
 -----------
