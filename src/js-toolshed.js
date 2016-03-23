@@ -166,6 +166,12 @@ Element.prototype.toggleClassName = function (className) {
 	}
 };
 
+Element.prototype.setHTML = function (html) {
+	'use strict';
+	this.innerHTML = html;
+	return this;
+};
+
 /**
  * Run function with all Nodes contained in a NodeList.
  * @param  {Function} fn  function(currentNode,index,NodeList){}, `this` being currentNode

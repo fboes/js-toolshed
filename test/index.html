@@ -10,19 +10,19 @@
 		label,textarea,input {display:block;width:99%;margin-bottom:1em;font-size:1em;font-family:inherit;}
 		textarea,input {background:rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.2);}
 		p {margin-bottom:1em;}
+		#message {transition:all 0.5s ease;padding:0.5em;background:#fee;}
 		#main {transition:all 0.5s ease;background:transparent;}
-		#main.secondary {background:#efe;}
+		#main.secondary, #message.success {background:#efe;}
 		#footer {font-size:0.8em;margin-top:1em;padding-top:1em;border-top:1px dotted;color:rgba(0,0,0,0.5);text-align:right;}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<div id="banner" class="header">
-			<header role="banner">JS Toolshed Test Page</header>
+			<header role="banner"><h1>JS Toolshed Test Page</h1></header>
 		</div>
 		<div id="main" class="main">
 			<main role="main">
-				<p id="message"></p>
 				<form>
 					<div>
 						<label for="textarea">Textarea (<output for="textarea"></output>)</label>
@@ -38,6 +38,7 @@
 						<input for="range-2" id="range-2-output" name="range-2-output" type="number" max="100" min="0" step="1" value="50" />
 					</div>
 				</form>
+				<p id="message">An error occured</p>
 			</main>
 		</div>
 		<div id="footer" class="footer">
@@ -107,7 +108,7 @@
 			console.log(a,b);
 		});
 
-		document.getElementById('message').innerHTML = 'All scripts completed successfully';
+		document.getElementById('message').setHTML('All scripts completed successfully').addClassName('success');
 	});
 	/*]]>*/</script>
 </body>
