@@ -1,13 +1,6 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		develop: false,
-		dirs: {
-			source:   'src/',
-			build:    'build/',
-			test:     'test/'
-		},
-
 		jshint: {
 			options: { // see https://github.com/jshint/jshint/blob/master/examples/.jshintrc
 				browser: true,
@@ -18,8 +11,8 @@ module.exports = function(grunt) {
 			build: {
 				files: {
 					src: [
-						'<%= dirs.source %>*.js',
-						'<%= dirs.test %>*.js'
+						'<%= pkg.directories.lib %>/*.js',
+						'<%= pkg.directories.test %>/*.js'
 					]
 				}
 			}
@@ -31,14 +24,14 @@ module.exports = function(grunt) {
 				// beautify: true,
 				// compress: false,
 				maxLineLen: 9000,
-				sourceMap: '<%= develop %>'
+				sourceMap: '<%= pkg.config.develop %>'
 			},
 			build: {
 				files: [{
 					expand: true,
-					cwd: '<%= dirs.source %>',
+					cwd: '<%= pkg.directories.lib %>/',
 					src: '*.js',
-					dest: '<%= dirs.build %>'
+					dest: '<%= pkg.directories.build %>/'
 				}]
 			}
 		},
@@ -54,7 +47,7 @@ module.exports = function(grunt) {
 			},
 			livereload: {
 				options: {livereload: true},
-				files: ['<%= dirs.test %>*.html','<%= dirs.test %>images/*']
+				files: ['<%= pkg.directories.test %>/*']
 			}
 		}
 	});
