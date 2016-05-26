@@ -62,6 +62,19 @@ Math.roundPrecision = function (val, precision) {
 };
 
 /**
+ * Get a random number between min (inclusive) and max (inclusive)
+ * @param  {integer} min [description]
+ * @param  {integer} max [description]
+ * @return {integer}     [description]
+ */
+Math.randomInt = function (min, max) {
+	'use strict';
+	min = parseInt(min);
+	max = parseInt(max);
+	return Math.floor(Math.random() * (max - min +1)) + min;
+};
+
+/**
  * Push element only to array if element is not empty
  * @param  {mixed}    element [description]
  * @return {this}             [description]
@@ -108,101 +121,107 @@ DateSetFromIsoString = function (dateString) {
 	return null;
 };
 
-/**
- * Check if element has a given classname in its class attribute
- * @param  {string}  className [description]
- * @return {Boolean}           [description]
- */
-Element.prototype.hasClassName = function (className) {
-	'use strict';
-	if (this.classList) {
-		return this.classList.contains(className);
-	} else {
-		return (this.className.match(new RegExp('(^|\\s)'+className+'(\\s|$)','g')));
-	}
-};
+if (Element !== undefined) {
+	/**
+	 * Check if element has a given classname in its class attribute
+	 * @param  {string}  className [description]
+	 * @return {Boolean}           [description]
+	 */
+	Element.prototype.hasClassName = function (className) {
+		'use strict';
+		if (this.classList) {
+			return this.classList.contains(className);
+		} else {
+			return (this.className.match(new RegExp('(^|\\s)'+className+'(\\s|$)','g')));
+		}
+	};
 
-/**
- * Add classname to given element
- * @param  {string} className [description]
- * @return {this}             [description]
- */
-Element.prototype.addClassName = function (className) {
-	'use strict';
-	if (this.classList) {
-		this.classList.add(className);
-	} else {
-		this.className += ((this.className !== '') ? ' ' : '') + className;
-	}
-	return this;
-};
+	/**
+	 * Add classname to given element
+	 * @param  {string} className [description]
+	 * @return {this}             [description]
+	 */
+	Element.prototype.addClassName = function (className) {
+		'use strict';
+		if (this.classList) {
+			this.classList.add(className);
+		} else {
+			this.className += ((this.className !== '') ? ' ' : '') + className;
+		}
+		return this;
+	};
 
-/**
- * Remove classname from given element
- * @param  {string} className [description]
- * @return {this}             [description]
- */
-Element.prototype.removeClassName = function (className) {
-	'use strict';
-	if (this.classList) {
-		this.classList.remove(className);
-	} else {
-		this.className = this.className.replace(new RegExp('\\s?' + className), '');
-	}
-	return this;
-};
+	/**
+	 * Remove classname from given element
+	 * @param  {string} className [description]
+	 * @return {this}             [description]
+	 */
+	Element.prototype.removeClassName = function (className) {
+		'use strict';
+		if (this.classList) {
+			this.classList.remove(className);
+		} else {
+			this.className = this.className.replace(new RegExp('\\s?' + className), '');
+		}
+		return this;
+	};
 
-/**
- * Remove classname from element if present, add classname if not present
- * @param  {string} className [description]
- * @return {this}             [description]
- */
-Element.prototype.toggleClassName = function (className) {
-	'use strict';
-	if (this.hasClassName(className)) {
-		return this.removeClassName(className);
-	} else {
-		return this.addClassName(className);
-	}
-};
+	/**
+	 * Remove classname from element if present, add classname if not present
+	 * @param  {string} className [description]
+	 * @return {this}             [description]
+	 */
+	Element.prototype.toggleClassName = function (className) {
+		'use strict';
+		if (this.hasClassName(className)) {
+			return this.removeClassName(className);
+		} else {
+			return this.addClassName(className);
+		}
+	};
 
-Element.prototype.setHTML = function (html) {
-	'use strict';
-	this.innerHTML = html;
-	return this;
-};
+	Element.prototype.setHTML = function (html) {
+		'use strict';
+		this.innerHTML = html;
+		return this;
+	};
+}
 
-/**
- * Run function with all Nodes contained in a NodeList.
- * @param  {Function} fn  function(currentNode,index,NodeList){}, `this` being currentNode
- * @return {this}         [description]
- */
-NodeList.prototype.forEachNode = function ( fn, thisArg ) {
-	'use strict';
-	var i;
-	for (i = 0; i < this.length; i++) {
-		fn.call(this[i],this[i],i,this);
-	}
-	return this;
-};
+if (NodeList !== undefined) {
 
-/**
- * Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
- * @param  {Function} fn  [description]
- * @return {this}         [description]
- */
-Document.prototype.ready = function (fn) {
-	'use strict';
-	if (document.addEventListener) {
-		document.addEventListener('DOMContentLoaded', fn);
-	}
-	else {
-		document.attachEvent('onreadystatechange', function() {
-			if (document.readyState != 'loading') {
-				fn();
-			}
-		});
-	}
-	return this;
-};
+	/**
+	 * Run function with all Nodes contained in a NodeList.
+	 * @param  {Function} fn  function(currentNode,index,NodeList){}, `this` being currentNode
+	 * @return {this}         [description]
+	 */
+	NodeList.prototype.forEachNode = function ( fn, thisArg ) {
+		'use strict';
+		var i;
+		for (i = 0; i < this.length; i++) {
+			fn.call(this[i],this[i],i,this);
+		}
+		return this;
+	};
+}
 
+if (Document !== undefined) {
+	/**
+	 * Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
+	 * @param  {Function} fn  [description]
+	 * @return {this}         [description]
+	 */
+	Document.prototype.ready = function (fn) {
+		'use strict';
+		if (document.addEventListener) {
+			document.addEventListener('DOMContentLoaded', fn);
+		}
+		else {
+			document.attachEvent('onreadystatechange', function() {
+				if (document.readyState != 'loading') {
+					fn();
+				}
+			});
+		}
+		return this;
+	};
+}
