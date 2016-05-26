@@ -36,18 +36,22 @@ module.exports = function(grunt) {
 			}
 		},
 
+		nodeunit: {
+			all: ['<%= pkg.directories.test %>/*.js']
+		},
+
 		watch: {
 			grunt: {
 				files: ['Gruntfile.js']
 			},
 			js: {
 				options: {livereload: true},
-				files: ['<%= jshint.build.files.src %>'],
+				files: ['<%= jshint.build.files.src %>','<%= pkg.directories.test %>/*.js'],
 				tasks: ['build-js']
 			},
 			livereload: {
 				options: {livereload: true},
-				files: ['<%= pkg.directories.test %>/*']
+				files: ['<%= pkg.directories.test %>/*.html']
 			}
 		}
 	});
@@ -56,6 +60,6 @@ module.exports = function(grunt) {
 	require('jit-grunt')(grunt);
 
 	// Default task(s).
-	grunt.registerTask('build-js',    ['jshint','uglify']);
+	grunt.registerTask('build-js',    ['jshint','uglify','nodeunit']);
 	grunt.registerTask('default',     ['jshint','uglify']);
 };

@@ -121,7 +121,7 @@ DateSetFromIsoString = function (dateString) {
 	return null;
 };
 
-if (Element !== undefined) {
+if (typeof Element !== 'undefined') {
 	/**
 	 * Check if element has a given classname in its class attribute
 	 * @param  {string}  className [description]
@@ -187,7 +187,7 @@ if (Element !== undefined) {
 	};
 }
 
-if (NodeList !== undefined) {
+if (typeof NodeList !== 'undefined') {
 
 	/**
 	 * Run function with all Nodes contained in a NodeList.
@@ -204,7 +204,7 @@ if (NodeList !== undefined) {
 	};
 }
 
-if (Document !== undefined) {
+if (typeof Document !== 'undefined') {
 	/**
 	 * Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
 	 * @param  {Function} fn  [description]
