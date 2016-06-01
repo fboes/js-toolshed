@@ -25,6 +25,24 @@ String.prototype.fromId = function () {
 };
 
 /**
+ * Convert `#string` into `string`
+ * @return {this}           [description]
+ */
+String.prototype.toId = function () {
+	'use strict';
+	return '#'+ this.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/^([^a-z])/,'id$1');
+};
+
+/**
+ * Convert string to XML / HTML safe string
+ * @return {this}           [description]
+ */
+String.prototype.htmlEncode = function () {
+	'use strict';
+	return this.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+};
+
+/**
  * Convert a number to a string representation with a fixed with, e.g. by padding it with `0`
  * @param  {integer} digits number of characters
  * @return {string}         [description]
