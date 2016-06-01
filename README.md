@@ -18,7 +18,7 @@ Via [Bower](http://bower.io/): `bower install fboes/js-toolshed`
 Documentation
 -------------
 
-See the [inline documentation](src/js-toolshed.js) for new methods to use.
+See the [auto documentation](docs/api.md) for new methods to use.
 
 * `Math`- & `Number`-methods for rounding and styled output of numbers
 * `Array`-methods for smart adding of new values and fast manipulation of values
