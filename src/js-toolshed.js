@@ -149,8 +149,16 @@ Object.prototype.forEachProperty = function (fn) {
  */
 DateSetFromIsoString = function (dateString) {
 	'use strict';
-	var dateValues = dateString.match(/^(\d+)\-(\d+)\-(\d+).(\d+):(\d+):(\d+)(\+|\-)(\d+):(\d+)/);
+	var dateValues = dateString.match(/^(\d+)\-(\d+)\-(\d+)(?:.(\d+):(\d+):(\d+)(?:(\+|\-)(\d+)\:(\d+))?)?/), i;
 	if (dateValues) {
+		for (i = 0; i <= 9; i++) {
+			if (!dateValues[i]) {
+				dateValues[i] = 0;
+			}
+			else if (i !== 7) {
+				dateValues[i] = parseInt(dateValues[i]);
+			}
+		}
 		var that = new Date(Date.UTC(
 			(dateValues[1]),
 			(dateValues[2] - 1),
@@ -161,7 +169,7 @@ DateSetFromIsoString = function (dateString) {
 		));
 		return that;
 	}
-	return null;
+	throw "No valid ISO time string";
 };
 
 if (typeof Element !== 'undefined') {
