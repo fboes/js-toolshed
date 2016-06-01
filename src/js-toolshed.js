@@ -1,4 +1,6 @@
 
+/** @class String */
+
 /**
  * Replace `%s` in given string with parameters
  * @param  {scalar}  args One or morge arguments
@@ -43,6 +45,23 @@ String.prototype.htmlEncode = function () {
 };
 
 /**
+ * Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getParameters() for implementation.
+ * @return {Object} [description]
+ */
+String.prototype.paramsToObject = function () {
+	'use strict';
+	var obj = {}, parts, i, currItem;
+	parts = this.replace(/^\?/,'').split(/&/);
+	for (i=0; i < parts.length; i++) {
+		currItem = parts[i].split('=');
+		obj[currItem[0]] = (currItem[1] !== undefined) ? decodeURIComponent(currItem[1]) : true;
+	}
+	return obj;
+};
+
+/** @class Number */
+
+/**
  * Convert a number to a string representation with a fixed with, e.g. by padding it with `0`
  * @param  {integer} digits number of characters
  * @return {string}         [description]
@@ -68,6 +87,8 @@ Number.prototype.toFixedString = function (digits) {
 	return thisString;
 };
 
+/** @class Math */
+
 /**
  * Round number to a given number of decimals
  * @param  {number}  val       [description]
@@ -92,6 +113,8 @@ Math.randomInt = function (min, max) {
 	return Math.floor(Math.random() * (max - min +1)) + min;
 };
 
+/** @class Array */
+
 /**
  * Push element only to array if element is not empty
  * @param  {mixed}    element [description]
@@ -101,6 +124,8 @@ Array.prototype.pushOnNotEmpty = function (element) {
 	'use strict';
 	return (element) ? this.push(element) : this.length;
 };
+
+/** @class Object */
 
 /**
  * Run function on all properties of an object.
@@ -140,6 +165,8 @@ DateSetFromIsoString = function (dateString) {
 };
 
 if (typeof Element !== 'undefined') {
+	/** @class Element */
+
 	/**
 	 * Check if element has a given classname in its class attribute
 	 * @param  {string}  className [description]
@@ -206,6 +233,7 @@ if (typeof Element !== 'undefined') {
 }
 
 if (typeof NodeList !== 'undefined') {
+	/** @class NodeList */
 
 	/**
 	 * Run function with all Nodes contained in a NodeList.
@@ -221,8 +249,22 @@ if (typeof NodeList !== 'undefined') {
 		return this;
 	};
 }
+if (typeof Location !== 'undefined') {
+	/** @class Window.location */
+
+	/**
+	 * Get current query string as object, refer to String.paramsToObject()
+	 * @return {Object} [description]
+	 */
+	Location.prototype.getParameters = function () {
+		'use strict';
+		return this.search.paramsToObject();
+	};
+}
 
 if (typeof Document !== 'undefined') {
+	/** @class Document */
+
 	/**
 	 * Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
 	 * @param  {Function} fn  [description]

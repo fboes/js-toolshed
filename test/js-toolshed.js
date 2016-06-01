@@ -1,6 +1,6 @@
 exports.testStringFunctionality = function(test) {
 	'use strict';
-	test.expect(15);
+	test.expect(21);
 
 	var toolshed = require('../src/js-toolshed');
 
@@ -27,6 +27,18 @@ exports.testStringFunctionality = function(test) {
 	// String.htmlEncode
 	test.strictEqual('x'.htmlEncode(), 'x', 'htmlEncode() without any special stuff.');
 	test.strictEqual('<a href="#test">Test</a>'.htmlEncode(), '&lt;a href=&quot;#test&quot;&gt;Test&lt;/a&gt;', 'htmlEncode() doing some encoding.');
+
+	// String.paramsToObject
+	var t;
+	t = '?a=b&c=d'.paramsToObject();
+	test.strictEqual(t.a, 'b', 'Reading parameter.');
+	test.strictEqual(t.c, 'd', 'Reading parameter.');
+
+	t = '?i=main&mode=front&sid=de8d49b78a85a322c4155015fdce22c4&enc=+Hello%20&empty'.paramsToObject();
+	test.strictEqual(t.i, 'main', 'Reading parameter.');
+	test.strictEqual(t.mode, 'front', 'Reading parameter.');
+	test.strictEqual(t.enc, '+Hello ', 'Reading parameter.');
+	test.strictEqual(t.empty, true, 'Reading parameter.');
 
 	test.done();
 };

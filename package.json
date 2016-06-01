@@ -25,7 +25,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "nodeunit test"
+    "test": "nodeunit test",
+    "docs": "jsdoc2md src/*.js > docs/api.md"
   },
   "config": {
     "develop": false
