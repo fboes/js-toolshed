@@ -90,18 +90,58 @@ exports.testMathFunctionality = function(test) {
 
 exports.testArrayFunctionality = function(test) {
 	'use strict';
-	//test.expect(21);
+	test.expect(1+8);
 
 	test.ok(Array, 'There is a Array.');
+	var t;
+
+	// Array.pushOnNotEmpty
+	t = [];
+	test.strictEqual(t.length, 0, 'Array is empty.');
+	t.push('x');
+	test.strictEqual(t.length, 1, 'Array has one element.');
+	t.pushOnNotEmpty('x');
+	test.strictEqual(t.length, 2, 'Array has 2 elements.');
+	t.pushOnNotEmpty(null);
+	test.strictEqual(t.length, 2, 'Array still has 2 elements.');
+	t.pushOnNotEmpty(undefined);
+	test.strictEqual(t.length, 2, 'Array still has 2 elements.');
+	t.pushOnNotEmpty('');
+	test.strictEqual(t.length, 2, 'Array still has 2 elements.');
+	t.pushOnNotEmpty(0);
+	test.strictEqual(t.length, 3, 'Array now has 3 elements.');
+	t.pushOnNotEmpty(false);
+	test.strictEqual(t.length, 4, 'Array now has 4 elements.');
 
 	test.done();
 };
 
 exports.testObjectFunctionality = function(test) {
 	'use strict';
-	//test.expect(21);
+	test.expect(1+6);
 
 	test.ok(Object, 'There is a Object.');
+	var t;
+
+	// Object.forEachProperty = function (fn) {
+	t = {
+		x: 1,
+		y: 2
+	};
+	test.strictEqual(t.x, 1, 'Object value.');
+	test.strictEqual(t.y, 2, 'Object value.');
+
+	t.forEachProperty(function(value,key){
+		this[key] = value + 1;
+	});
+	test.strictEqual(t.x, 2, 'Object value.');
+	test.strictEqual(t.y, 3, 'Object value.');
+
+	t.forEachProperty(function(value,key){
+		t[key] = value + 1;
+	});
+	test.strictEqual(t.x, 3, 'Object value.');
+	test.strictEqual(t.y, 4, 'Object value.');
 
 	test.done();
 };

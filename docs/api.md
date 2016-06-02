@@ -168,7 +168,7 @@ Run function on all properties of an object.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| fn | <code>function</code> | function(value,key,object){}, `this` being value |
+| fn | <code>function</code> | function(value,key,object){}, `this` being the current object |
 
 <a name="Element"></a>
 

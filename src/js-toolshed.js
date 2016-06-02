@@ -122,14 +122,14 @@ Math.randomInt = function (min, max) {
  */
 Array.prototype.pushOnNotEmpty = function (element) {
 	'use strict';
-	return (element) ? this.push(element) : this.length;
+	return (element !== undefined && element !== null && element !== '') ? this.push(element) : this.length;
 };
 
 /** @class Object */
 
 /**
  * Run function on all properties of an object.
- * @param  {Function} fn  function(value,key,object){}, `this` being value
+ * @param  {Function} fn  function(value,key,object){}, `this` being the current object
  * @return {this}         [description]
  */
 Object.prototype.forEachProperty = function (fn) {
