@@ -34,10 +34,10 @@
 
 * [String](#String)
     * [.trim()](#String+trim) ⇒ <code>this</code>
-    * [.sprintf(args)](#String+sprintf) ⇒ <code>this</code>
-    * [.fromId()](#String+fromId) ⇒ <code>this</code>
-    * [.toId()](#String+toId) ⇒ <code>this</code>
-    * [.htmlEncode()](#String+htmlEncode) ⇒ <code>this</code>
+    * [.sprintf(args)](#String+sprintf) ⇒ <code>[String](#String)</code>
+    * [.fromId()](#String+fromId) ⇒ <code>[String](#String)</code>
+    * [.toId()](#String+toId) ⇒ <code>[String](#String)</code>
+    * [.htmlEncode()](#String+htmlEncode) ⇒ <code>[String](#String)</code>
     * [.paramsToObject()](#String+paramsToObject) ⇒ <code>[Object](#Object)</code>
 
 <a name="String+trim"></a>
@@ -49,11 +49,11 @@ Remove whitespaces around string
 **Returns**: <code>this</code> - [description]  
 <a name="String+sprintf"></a>
 
-### string.sprintf(args) ⇒ <code>this</code>
+### string.sprintf(args) ⇒ <code>[String](#String)</code>
 Replace `%s` in given string with parameters
 
 **Kind**: instance method of <code>[String](#String)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[String](#String)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -61,25 +61,25 @@ Replace `%s` in given string with parameters
 
 <a name="String+fromId"></a>
 
-### string.fromId() ⇒ <code>this</code>
+### string.fromId() ⇒ <code>[String](#String)</code>
 Convert `#string` into `string`
 
 **Kind**: instance method of <code>[String](#String)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+toId"></a>
 
-### string.toId() ⇒ <code>this</code>
+### string.toId() ⇒ <code>[String](#String)</code>
 Convert `#string` into `string`
 
 **Kind**: instance method of <code>[String](#String)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+htmlEncode"></a>
 
-### string.htmlEncode() ⇒ <code>this</code>
+### string.htmlEncode() ⇒ <code>[String](#String)</code>
 Convert string to XML / HTML safe string
 
 **Kind**: instance method of <code>[String](#String)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+paramsToObject"></a>
 
 ### string.paramsToObject() ⇒ <code>[Object](#Object)</code>
@@ -93,11 +93,11 @@ Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getPara
 **Kind**: global class  
 <a name="Number+toFixedString"></a>
 
-### number.toFixedString(digits) ⇒ <code>string</code>
-Convert a number to a string representation with a fixed with, e.g. by padding it with `0`
+### number.toFixedString(digits) ⇒ <code>[String](#String)</code>
+Convert a number to a string representation with a fixed width, e.g. by padding it with `0`
 
 **Kind**: instance method of <code>[Number](#Number)</code>  
-**Returns**: <code>string</code> - [description]  
+**Returns**: <code>[String](#String)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -109,20 +109,20 @@ Convert a number to a string representation with a fixed with, e.g. by padding i
 **Kind**: global class  
 
 * [Math](#Math)
-    * [.roundPrecision(val, precision)](#Math.roundPrecision) ⇒ <code>number</code>
+    * [.roundPrecision(val, precision)](#Math.roundPrecision) ⇒ <code>[Number](#Number)</code>
     * [.randomInt(min, max)](#Math.randomInt) ⇒ <code>integer</code>
 
 <a name="Math.roundPrecision"></a>
 
-### Math.roundPrecision(val, precision) ⇒ <code>number</code>
+### Math.roundPrecision(val, precision) ⇒ <code>[Number](#Number)</code>
 Round number to a given number of decimals
 
 **Kind**: static method of <code>[Math](#Math)</code>  
-**Returns**: <code>number</code> - [description]  
+**Returns**: <code>[Number](#Number)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| val | <code>number</code> | [description] |
+| val | <code>[Number](#Number)</code> | [description] |
 | precision | <code>integer</code> | [description] |
 
 <a name="Math.randomInt"></a>
@@ -144,11 +144,11 @@ Get a random number between min (inclusive) and max (inclusive)
 **Kind**: global class  
 <a name="Array+pushOnNotEmpty"></a>
 
-### array.pushOnNotEmpty(element) ⇒ <code>this</code>
+### array.pushOnNotEmpty(element) ⇒ <code>[Array](#Array)</code>
 Push element only to array if element is not empty
 
 **Kind**: instance method of <code>[Array](#Array)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[Array](#Array)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -160,11 +160,11 @@ Push element only to array if element is not empty
 **Kind**: global class  
 <a name="Object+forEachProperty"></a>
 
-### object.forEachProperty(fn) ⇒ <code>this</code>
+### object.forEachProperty(fn) ⇒ <code>[Object](#Object)</code>
 Run function on all properties of an object.
 
 **Kind**: instance method of <code>[Object](#Object)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[Object](#Object)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -178,9 +178,9 @@ Run function on all properties of an object.
 * [Element](#Element)
     * [.closest()](#Element+closest) ⇒ <code>this</code>
     * [.hasClassName(className)](#Element+hasClassName) ⇒ <code>Boolean</code>
-    * [.addClassName(className)](#Element+addClassName) ⇒ <code>this</code>
-    * [.removeClassName(className)](#Element+removeClassName) ⇒ <code>this</code>
-    * [.toggleClassName(className)](#Element+toggleClassName) ⇒ <code>this</code>
+    * [.addClassName(className)](#Element+addClassName) ⇒ <code>[Element](#Element)</code>
+    * [.removeClassName(className)](#Element+removeClassName) ⇒ <code>[Element](#Element)</code>
+    * [.toggleClassName(className)](#Element+toggleClassName) ⇒ <code>[Element](#Element)</code>
 
 <a name="Element+closest"></a>
 
@@ -199,43 +199,43 @@ Check if element has a given classname in its class attribute
 
 | Param | Type | Description |
 | --- | --- | --- |
-| className | <code>string</code> | [description] |
+| className | <code>[String](#String)</code> | [description] |
 
 <a name="Element+addClassName"></a>
 
-### element.addClassName(className) ⇒ <code>this</code>
+### element.addClassName(className) ⇒ <code>[Element](#Element)</code>
 Add classname to given element
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[Element](#Element)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| className | <code>string</code> | [description] |
+| className | <code>[String](#String)</code> | [description] |
 
 <a name="Element+removeClassName"></a>
 
-### element.removeClassName(className) ⇒ <code>this</code>
+### element.removeClassName(className) ⇒ <code>[Element](#Element)</code>
 Remove classname from given element
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[Element](#Element)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| className | <code>string</code> | [description] |
+| className | <code>[String](#String)</code> | [description] |
 
 <a name="Element+toggleClassName"></a>
 
-### element.toggleClassName(className) ⇒ <code>this</code>
+### element.toggleClassName(className) ⇒ <code>[Element](#Element)</code>
 Remove classname from element if present, add classname if not present
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[Element](#Element)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| className | <code>string</code> | [description] |
+| className | <code>[String](#String)</code> | [description] |
 
 <a name="NodeList"></a>
 
@@ -243,11 +243,11 @@ Remove classname from element if present, add classname if not present
 **Kind**: global class  
 <a name="NodeList+forEachNode"></a>
 
-### nodeList.forEachNode(fn) ⇒ <code>this</code>
+### nodeList.forEachNode(fn) ⇒ <code>[NodeList](#NodeList)</code>
 Run function with all Nodes contained in a NodeList.
 
 **Kind**: instance method of <code>[NodeList](#NodeList)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[NodeList](#NodeList)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -259,11 +259,11 @@ Run function with all Nodes contained in a NodeList.
 **Kind**: global class  
 <a name="Document+ready"></a>
 
-### document.ready(fn) ⇒ <code>this</code>
+### document.ready(fn) ⇒ <code>[Document](#Document)</code>
 Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
 
 **Kind**: instance method of <code>[Document](#Document)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[Document](#Document)</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -279,5 +279,5 @@ Convert given UTC string into Date object
 
 | Param | Type | Description |
 | --- | --- | --- |
-| dateString | <code>string</code> | like '2015-11-06 13:21:00+02:00' |
+| dateString | <code>[String](#String)</code> | like '2015-11-06 13:21:00+02:00' |
 

@@ -4,7 +4,7 @@
 /**
  * Replace `%s` in given string with parameters
  * @param  {scalar}  args One or morge arguments
- * @return {this}         [description]
+ * @return {String}         [description]
  */
 String.prototype.sprintf = function () {
 	'use strict';
@@ -19,7 +19,7 @@ String.prototype.sprintf = function () {
 
 /**
  * Convert `#string` into `string`
- * @return {this}           [description]
+ * @return {String}           [description]
  */
 String.prototype.fromId = function () {
 	'use strict';
@@ -28,7 +28,7 @@ String.prototype.fromId = function () {
 
 /**
  * Convert `#string` into `string`
- * @return {this}           [description]
+ * @return {String}           [description]
  */
 String.prototype.toId = function () {
 	'use strict';
@@ -37,7 +37,7 @@ String.prototype.toId = function () {
 
 /**
  * Convert string to XML / HTML safe string
- * @return {this}           [description]
+ * @return {String}           [description]
  */
 String.prototype.htmlEncode = function () {
 	'use strict';
@@ -62,9 +62,9 @@ String.prototype.paramsToObject = function () {
 /** @class Number */
 
 /**
- * Convert a number to a string representation with a fixed with, e.g. by padding it with `0`
+ * Convert a number to a string representation with a fixed width, e.g. by padding it with `0`
  * @param  {integer} digits number of characters
- * @return {string}         [description]
+ * @return {String}         [description]
  */
 Number.prototype.toFixedString = function (digits) {
 	'use strict';
@@ -91,9 +91,9 @@ Number.prototype.toFixedString = function (digits) {
 
 /**
  * Round number to a given number of decimals
- * @param  {number}  val       [description]
+ * @param  {Number}  val       [description]
  * @param  {integer} precision [description]
- * @return {number}            [description]
+ * @return {Number}            [description]
  */
 Math.roundPrecision = function (val, precision) {
 	'use strict';
@@ -118,7 +118,7 @@ Math.randomInt = function (min, max) {
 /**
  * Push element only to array if element is not empty
  * @param  {mixed}    element [description]
- * @return {this}             [description]
+ * @return {Array}            [description]
  */
 Array.prototype.pushOnNotEmpty = function (element) {
 	'use strict';
@@ -130,7 +130,7 @@ Array.prototype.pushOnNotEmpty = function (element) {
 /**
  * Run function on all properties of an object.
  * @param  {Function} fn  function(value,key,object){}, `this` being the current object
- * @return {this}         [description]
+ * @return {Object}       [description]
  */
 Object.prototype.forEachProperty = function (fn) {
 	'use strict';
@@ -144,7 +144,7 @@ Object.prototype.forEachProperty = function (fn) {
 
 /**
  * Convert given UTC string into Date object
- * @param  {string} dateString like '2015-11-06 13:21:00+02:00'
+ * @param  {String} dateString like '2015-11-06 13:21:00+02:00'
  * @return {Date}              [description]
  */
 DateSetFromIsoString = function (dateString) {
@@ -177,7 +177,7 @@ if (typeof Element !== 'undefined') {
 
 	/**
 	 * Check if element has a given classname in its class attribute
-	 * @param  {string}  className [description]
+	 * @param  {String}  className [description]
 	 * @return {Boolean}           [description]
 	 */
 	Element.prototype.hasClassName = function (className) {
@@ -191,8 +191,8 @@ if (typeof Element !== 'undefined') {
 
 	/**
 	 * Add classname to given element
-	 * @param  {string} className [description]
-	 * @return {this}             [description]
+	 * @param  {String} className [description]
+	 * @return {Element}          [description]
 	 */
 	Element.prototype.addClassName = function (className) {
 		'use strict';
@@ -206,8 +206,8 @@ if (typeof Element !== 'undefined') {
 
 	/**
 	 * Remove classname from given element
-	 * @param  {string} className [description]
-	 * @return {this}             [description]
+	 * @param  {String} className [description]
+	 * @return {Element}          [description]
 	 */
 	Element.prototype.removeClassName = function (className) {
 		'use strict';
@@ -221,8 +221,8 @@ if (typeof Element !== 'undefined') {
 
 	/**
 	 * Remove classname from element if present, add classname if not present
-	 * @param  {string} className [description]
-	 * @return {this}             [description]
+	 * @param  {String} className [description]
+	 * @return {Element}          [description]
 	 */
 	Element.prototype.toggleClassName = function (className) {
 		'use strict';
@@ -246,7 +246,7 @@ if (typeof NodeList !== 'undefined') {
 	/**
 	 * Run function with all Nodes contained in a NodeList.
 	 * @param  {Function} fn  function(currentNode,index,NodeList){}, `this` being currentNode
-	 * @return {this}         [description]
+	 * @return {NodeList}     [description]
 	 */
 	NodeList.prototype.forEachNode = function ( fn, thisArg ) {
 		'use strict';
@@ -276,7 +276,7 @@ if (typeof Document !== 'undefined') {
 	/**
 	 * Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
 	 * @param  {Function} fn  [description]
-	 * @return {this}         [description]
+	 * @return {Document}     [description]
 	 */
 	Document.prototype.ready = function (fn) {
 		'use strict';
