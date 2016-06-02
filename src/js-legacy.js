@@ -1,7 +1,7 @@
 if (!String.prototype.trim) {
 	/**
 	 * Remove whitespaces around string
-	 * @return {this}           [description]
+	 * @return {String}         [description]
 	 */
 	String.prototype.trim = function () {
 		'use strict';
@@ -9,6 +9,7 @@ if (!String.prototype.trim) {
 	};
 }
 
+/** @class Element */
 if (!Element.prototype.matches) {
 	Element.prototype.matches = function (selector) {
 		'use strict';
@@ -19,7 +20,7 @@ if (!Element.prototype.matches) {
 if (!Element.prototype.closest) {
 	/**
 	 * Find closest match to given selector, starting at current element and traversing up
-	 * @return {this}   [description]
+	 * @return {Element}   [description]
 	 */
 	Element.prototype.closest = function (selector) {
 		'use strict';
@@ -42,12 +43,13 @@ if (typeof console == "undefined" || typeof console.log == "undefined") {
 	};
 }
 
+/** @class EventTarget */
 if (!EventTarget.prototype.addEventListener) {
 	/**
 	 * Add an event
 	 * @param {string}   type [description]
 	 * @param {Function} fn   [description]
-	 * @return {this}         [description]
+	 * @return {EventTarget}         [description]
 	 */
 	EventTarget.prototype.addEventListener = function ( type, fn ) {
 		'use strict';
@@ -64,7 +66,7 @@ if (!EventTarget.prototype.removeEventListener) {
 	 * Remove an event
 	 * @param {string}   type [description]
 	 * @param {Function} fn   [description]
-	 * @return {this}         [description]
+	 * @return {EventTarget}         [description]
 	 */
 	EventTarget.prototype.removeEventListener = function ( type, fn ) {
 		'use strict';

@@ -1,6 +1,10 @@
 ## Classes
 
 <dl>
+<dt><a href="#Element">Element</a></dt>
+<dd></dd>
+<dt><a href="#EventTarget">EventTarget</a></dt>
+<dd></dd>
 <dt><a href="#String">String</a></dt>
 <dd></dd>
 <dt><a href="#Number">Number</a></dt>
@@ -27,13 +31,115 @@
 </dd>
 </dl>
 
+<a name="Element"></a>
+
+## Element
+**Kind**: global class  
+
+* [Element](#Element)
+    * [.closest()](#Element+closest) ⇒ <code>[Element](#Element)</code>
+    * [.hasClassName(className)](#Element+hasClassName) ⇒ <code>Boolean</code>
+    * [.addClassName(className)](#Element+addClassName) ⇒ <code>[Element](#Element)</code>
+    * [.removeClassName(className)](#Element+removeClassName) ⇒ <code>[Element](#Element)</code>
+    * [.toggleClassName(className)](#Element+toggleClassName) ⇒ <code>[Element](#Element)</code>
+
+<a name="Element+closest"></a>
+
+### element.closest() ⇒ <code>[Element](#Element)</code>
+Find closest match to given selector, starting at current element and traversing up
+
+**Kind**: instance method of <code>[Element](#Element)</code>  
+**Returns**: <code>[Element](#Element)</code> - [description]  
+<a name="Element+hasClassName"></a>
+
+### element.hasClassName(className) ⇒ <code>Boolean</code>
+Check if element has a given classname in its class attribute
+
+**Kind**: instance method of <code>[Element](#Element)</code>  
+**Returns**: <code>Boolean</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| className | <code>[String](#String)</code> | [description] |
+
+<a name="Element+addClassName"></a>
+
+### element.addClassName(className) ⇒ <code>[Element](#Element)</code>
+Add classname to given element
+
+**Kind**: instance method of <code>[Element](#Element)</code>  
+**Returns**: <code>[Element](#Element)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| className | <code>[String](#String)</code> | [description] |
+
+<a name="Element+removeClassName"></a>
+
+### element.removeClassName(className) ⇒ <code>[Element](#Element)</code>
+Remove classname from given element
+
+**Kind**: instance method of <code>[Element](#Element)</code>  
+**Returns**: <code>[Element](#Element)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| className | <code>[String](#String)</code> | [description] |
+
+<a name="Element+toggleClassName"></a>
+
+### element.toggleClassName(className) ⇒ <code>[Element](#Element)</code>
+Remove classname from element if present, add classname if not present
+
+**Kind**: instance method of <code>[Element](#Element)</code>  
+**Returns**: <code>[Element](#Element)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| className | <code>[String](#String)</code> | [description] |
+
+<a name="EventTarget"></a>
+
+## EventTarget
+**Kind**: global class  
+
+* [EventTarget](#EventTarget)
+    * [.addEventListener(type, fn)](#EventTarget+addEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
+    * [.removeEventListener(type, fn)](#EventTarget+removeEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
+
+<a name="EventTarget+addEventListener"></a>
+
+### eventTarget.addEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
+Add an event
+
+**Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
+**Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | [description] |
+| fn | <code>function</code> | [description] |
+
+<a name="EventTarget+removeEventListener"></a>
+
+### eventTarget.removeEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
+Remove an event
+
+**Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
+**Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | [description] |
+| fn | <code>function</code> | [description] |
+
 <a name="String"></a>
 
 ## String
 **Kind**: global class  
 
 * [String](#String)
-    * [.trim()](#String+trim) ⇒ <code>this</code>
+    * [.trim()](#String+trim) ⇒ <code>[String](#String)</code>
     * [.sprintf(args)](#String+sprintf) ⇒ <code>[String](#String)</code>
     * [.fromId()](#String+fromId) ⇒ <code>[String](#String)</code>
     * [.toId()](#String+toId) ⇒ <code>[String](#String)</code>
@@ -42,11 +148,11 @@
 
 <a name="String+trim"></a>
 
-### string.trim() ⇒ <code>this</code>
+### string.trim() ⇒ <code>[String](#String)</code>
 Remove whitespaces around string
 
 **Kind**: instance method of <code>[String](#String)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+sprintf"></a>
 
 ### string.sprintf(args) ⇒ <code>[String](#String)</code>
@@ -176,7 +282,7 @@ Run function on all properties of an object.
 **Kind**: global class  
 
 * [Element](#Element)
-    * [.closest()](#Element+closest) ⇒ <code>this</code>
+    * [.closest()](#Element+closest) ⇒ <code>[Element](#Element)</code>
     * [.hasClassName(className)](#Element+hasClassName) ⇒ <code>Boolean</code>
     * [.addClassName(className)](#Element+addClassName) ⇒ <code>[Element](#Element)</code>
     * [.removeClassName(className)](#Element+removeClassName) ⇒ <code>[Element](#Element)</code>
@@ -184,11 +290,11 @@ Run function on all properties of an object.
 
 <a name="Element+closest"></a>
 
-### element.closest() ⇒ <code>this</code>
+### element.closest() ⇒ <code>[Element](#Element)</code>
 Find closest match to given selector, starting at current element and traversing up
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
-**Returns**: <code>this</code> - [description]  
+**Returns**: <code>[Element](#Element)</code> - [description]  
 <a name="Element+hasClassName"></a>
 
 ### element.hasClassName(className) ⇒ <code>Boolean</code>
