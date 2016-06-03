@@ -62,7 +62,7 @@ String.prototype.paramsToObject = function () {
 /** @class Number */
 
 /**
- * Convert a number to a string representation with a fixed width, e.g. by padding it with `0`
+ * Convert a number to a string representation with a fixed width, e.g. by padding it with `0`. See also `.toFixed()` for padding the deicmals of a given number.
  * @param  {integer} digits number of characters
  * @return {String}         [description]
  */

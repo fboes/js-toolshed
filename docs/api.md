@@ -200,7 +200,7 @@ Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getPara
 <a name="Number+toFixedString"></a>
 
 ### number.toFixedString(digits) ⇒ <code>[String](#String)</code>
-Convert a number to a string representation with a fixed width, e.g. by padding it with `0`
+Convert a number to a string representation with a fixed width, e.g. by padding it with `0`. See also `.toFixed()` for padding the deicmals of a given number.
 
 **Kind**: instance method of <code>[Number](#Number)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
