@@ -102,5 +102,3 @@
 		return this;
 	};
 })(jQuery);
-
-

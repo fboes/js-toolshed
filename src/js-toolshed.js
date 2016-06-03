@@ -66,9 +66,13 @@ String.prototype.paramsToObject = function () {
  * @param  {integer} digits number of characters
  * @return {String}         [description]
  */
-Number.prototype.toFixedString = function (digits) {
+Number.prototype.toFixedString = function (digits, decimals) {
 	'use strict';
-	var thisString = Math.abs(this).toString(),i;
+	decimals = decimals ? decimals : 0;
+	if (digits <= 0) {
+		return '';
+	}
+	var thisString = Math.abs(Math.roundPrecision(this, decimals)).toFixed(decimals),i;
 	if (this >= 0) {
 		for (i = (digits - 1); i > 0; i--) {
 			if (this < Math.pow(10,i)) {

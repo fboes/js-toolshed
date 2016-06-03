@@ -46,7 +46,7 @@ exports.testStringFunctionality = function(test) {
 
 exports.testNumberFunctionality = function(test) {
 	'use strict';
-	test.expect(2+7);
+	test.expect(2+10);
 
 	test.ok(Number, 'There is a Number.');
 	test.strictEqual(Number(1), 1, 'What is a Number?');
@@ -56,7 +56,10 @@ exports.testNumberFunctionality = function(test) {
 	test.strictEqual(Number(1).toFixedString(2), '01', 'toFixedString fixing a 1');
 	test.strictEqual(Number(1).toFixedString(3), '001', 'toFixedString fixing a 1');
 	test.strictEqual(Number(99).toFixedString(3), '099', 'toFixedString fixing a 1');
-	test.strictEqual(Number(1.1).toFixedString(3), '001.1', 'toFixedString fixing a 1');
+	test.strictEqual(Number(1.1).toFixedString(3), '001', 'toFixedString fixing a 1');
+	test.strictEqual(Number(1.1).toFixedString(3,1), '001.1', 'toFixedString fixing a 1');
+	test.strictEqual(Number(1).toFixedString(3,1), '001.0', 'toFixedString fixing a 1');
+	test.strictEqual(Number(1).toFixedString(3,2), '001.00', 'toFixedString fixing a 1');
 	test.strictEqual(Number(-2).toFixedString(3), '-002', 'toFixedString fixing a 1');
 	test.strictEqual(Number(0).toFixedString(3), '000', 'toFixedString fixing a 1');
 

@@ -11,8 +11,8 @@ module.exports = function(grunt) {
 			build: {
 				files: {
 					src: [
-						'<%= pkg.directories.lib %>/*.js',
-						'<%= pkg.directories.test %>/*.js'
+						'<%= pkg.directories.lib %>/**/*.js',
+						'<%= pkg.directories.test %>/**/*.js'
 					]
 				}
 			}
