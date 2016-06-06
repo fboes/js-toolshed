@@ -1,9 +1,9 @@
-var toolshed = require('../src/js-toolshed');
+var toolshed = require('../build/js-toolshed');
 
 
 exports.testStringFunctionality = function(test) {
 	'use strict';
-	test.expect(2+19);
+	test.expect(2+19+4);
 
 	test.ok(String, 'There is a String.');
 	test.strictEqual(String('x'), 'x', 'What is a string?');
@@ -40,6 +40,12 @@ exports.testStringFunctionality = function(test) {
 	test.strictEqual(t.mode, 'front', 'Reading parameter.');
 	test.strictEqual(t.enc, '+Hello ', 'Reading parameter.');
 	test.strictEqual(t.empty, true, 'Reading parameter.');
+
+	t = '_octo=GH1.1.yyy.xxx; _gat=1; _ga=GA1.2.yyy.xxx; tz=Europe%2FBerlin'.paramsToObject(/\;\s?/);
+	test.strictEqual(t._octo, 'GH1.1.yyy.xxx', 'Reading parameter.');
+	test.strictEqual(t._gat, '1', 'Reading parameter.');
+	test.strictEqual(t._ga, 'GA1.2.yyy.xxx', 'Reading parameter.');
+	test.strictEqual(t.tz, 'Europe/Berlin', 'Reading parameter.');
 
 	test.done();
 };

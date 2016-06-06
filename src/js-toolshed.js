@@ -43,11 +43,13 @@
 
 	/**
 	 * Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getParameters() for implementation.
-	 * @return {Object} [description]
+	 * @param  {RegExp} splitter term to split pars of values
+	 * @return {Object}          [description]
 	 */
-	String.prototype.paramsToObject = function () {
+	String.prototype.paramsToObject = function (splitter) {
 		var obj = {}, parts, i, currItem;
-		parts = this.replace(/^\?/,'').split(/&/);
+		splitter = splitter ? splitter : /&/;
+		parts = this.replace(/^\?/,'').split(splitter);
 		for (i=0; i < parts.length; i++) {
 			currItem = parts[i].split('=');
 			obj[currItem[0]] = (currItem[1] !== undefined) ? decodeURIComponent(currItem[1]) : true;
@@ -222,10 +224,10 @@
 		/** @class Window.location */
 
 		/**
-		 * Get current query string as object, refer to String.paramsToObject()
+		 * Get current query string as object. Refer to String.paramsToObject().
 		 * @return {Object} [description]
 		 */
-		Location.prototype.getParameters = function () {
+		Location.prototype.getSearchObject = function () {
 			return this.search.paramsToObject();
 		};
 	}
@@ -250,6 +252,14 @@
 				});
 			}
 			return this;
+		};
+
+		/**
+		 * Get `document.cookie` as an object with `key=value`. Refer to String.paramsToObject().
+		 * @return {Object} [description]
+		 */
+		Document.prototype.getCookieObject = function () {
+			return this.cookie.paramsToObject(/\;\s?/);
 		};
 	}
 }());

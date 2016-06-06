@@ -144,7 +144,7 @@ Remove an event
     * [.fromId()](#String+fromId) ⇒ <code>[String](#String)</code>
     * [.toId()](#String+toId) ⇒ <code>[String](#String)</code>
     * [.htmlEncode()](#String+htmlEncode) ⇒ <code>[String](#String)</code>
-    * [.paramsToObject()](#String+paramsToObject) ⇒ <code>[Object](#Object)</code>
+    * [.paramsToObject(splitter)](#String+paramsToObject) ⇒ <code>[Object](#Object)</code>
 
 <a name="String+trim"></a>
 
@@ -188,11 +188,16 @@ Convert string to XML / HTML safe string
 **Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+paramsToObject"></a>
 
-### string.paramsToObject() ⇒ <code>[Object](#Object)</code>
+### string.paramsToObject(splitter) ⇒ <code>[Object](#Object)</code>
 Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getParameters() for implementation.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[Object](#Object)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| splitter | <code>RegExp</code> | term to split pars of values |
+
 <a name="Number"></a>
 
 ## Number
@@ -363,6 +368,11 @@ Run function with all Nodes contained in a NodeList.
 
 ## Document
 **Kind**: global class  
+
+* [Document](#Document)
+    * [.ready(fn)](#Document+ready) ⇒ <code>[Document](#Document)</code>
+    * [.getCookieObject()](#Document+getCookieObject) ⇒ <code>[Object](#Object)</code>
+
 <a name="Document+ready"></a>
 
 ### document.ready(fn) ⇒ <code>[Document](#Document)</code>
@@ -375,6 +385,13 @@ Execute function after DOM is ready; hattip to http://youmightnotneedjquery.com/
 | --- | --- | --- |
 | fn | <code>function</code> | [description] |
 
+<a name="Document+getCookieObject"></a>
+
+### document.getCookieObject() ⇒ <code>[Object](#Object)</code>
+Get `document.cookie` as an object with `key=value`. Refer to String.paramsToObject().
+
+**Kind**: instance method of <code>[Document](#Document)</code>  
+**Returns**: <code>[Object](#Object)</code> - [description]  
 <a name="DateSetFromIsoString"></a>
 
 ## DateSetFromIsoString(dateString) ⇒ <code>Date</code>

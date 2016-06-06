@@ -36,6 +36,10 @@ How to do stuff
 * `EventTarget.addEventListener()`
 * `EventTarget.removeEventListener()`
 
+#### Cookie- & request-handling
+
+* [Cookies](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
+
 For other stuff you will find ample polyfills in [jquery-legacy.js](../src/jquery-legacy.js) and extensions of native protoypes in [jquery-toolshed.js](../src/jquery-toolshed.js).
 
 You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
