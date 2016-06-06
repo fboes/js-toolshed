@@ -286,7 +286,7 @@ DateSetFromIsoString = function (dateString) {
 			(dateValues[2] - 1),
 			(dateValues[3]),
 			((dateValues[7] === '+') ? dateValues[4] - dateValues[8] : dateValues[4] + dateValues[8]),
-			((dateValues[7] === '+') ? dateValues[5] - dateValues[9] : dateValues[5] - dateValues[9]),
+			((dateValues[7] === '+') ? dateValues[5] - dateValues[9] : dateValues[5] + dateValues[9]),
 			(dateValues[6])
 		));
 		return that;

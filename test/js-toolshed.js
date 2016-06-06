@@ -157,19 +157,36 @@ exports.testObjectFunctionality = function(test) {
 
 exports.testDateSetFromIsoStringFunctionality = function(test) {
 	'use strict';
-	//test.expect(21);
+	test.expect(1+19);
 
 	test.ok(DateSetFromIsoString, 'There is a DateSetFromIsoString.');
 
 	var t;
 
-	t = DateSetFromIsoString("2015-11-06 13:21:00+02:00");
-	test.strictEqual(t.getDate(), 6, 'Checking date & time & timezone.');
-	test.strictEqual(t.getFullYear(), 2015, 'Checking date & time & timezone.');
-
 	t = DateSetFromIsoString("2015-11-06 13:21:00+00:00");
 	test.strictEqual(t.getDate(), 6, 'Checking date & time & timezone 0.');
 	test.strictEqual(t.getFullYear(), 2015, 'Checking date & time & timezone 0.');
+	test.strictEqual(t.getHours(), 14, 'Checking date & time & timezone 0.');
+
+	t = DateSetFromIsoString("2015-11-06 13:21:00+02:00");
+	test.strictEqual(t.getDate(), 6, 'Checking date & time & timezone.');
+	test.strictEqual(t.getFullYear(), 2015, 'Checking date & time & timezone.');
+	test.strictEqual(t.getHours(), 12, 'Checking date & time & timezone 0.');
+
+	t = DateSetFromIsoString("2015-11-06 13:21:00+02:30");
+	test.strictEqual(t.getDate(), 6, 'Checking date & time & timezone.');
+	test.strictEqual(t.getFullYear(), 2015, 'Checking date & time & timezone.');
+	test.strictEqual(t.getHours(), 11, 'Checking date & time & timezone 0.');
+
+	t = DateSetFromIsoString("2015-11-06 13:21:00-02:00");
+	test.strictEqual(t.getDate(), 6, 'Checking date & time & timezone.');
+	test.strictEqual(t.getFullYear(), 2015, 'Checking date & time & timezone.');
+	test.strictEqual(t.getHours(), 16, 'Checking date & time & timezone 0.');
+
+	t = DateSetFromIsoString("2015-11-06 13:21:00-02:30");
+	test.strictEqual(t.getDate(), 6, 'Checking date & time & timezone.');
+	test.strictEqual(t.getFullYear(), 2015, 'Checking date & time & timezone.');
+	test.strictEqual(t.getHours(), 16, 'Checking date & time & timezone 0.');
 
 	t = DateSetFromIsoString("2015-11-06 13:32:00");
 	test.strictEqual(t.getDate(), 6, 'Checking date & time.');
@@ -179,6 +196,5 @@ exports.testDateSetFromIsoStringFunctionality = function(test) {
 	test.strictEqual(t.getDate(), 6, 'Checking date.');
 	test.strictEqual(t.getFullYear(), 2015, 'Checking date.');
 
-console.log(t);
 	test.done();
 };
