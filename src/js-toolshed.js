@@ -3,7 +3,7 @@
 	/** @class String */
 
 	/**
-	 * Replace `%s` in given string with parameters
+	 * Replace `%s`, `%d`, `%f` in given string with parameters
 	 * @param  {scalar}  args One or morge arguments
 	 * @return {String}         [description]
 	 */
@@ -11,7 +11,16 @@
 		var i, that = this;
 		if (arguments) {
 			for (i = 0; i < arguments.length; ++i) {
-				that = that.replace(/%[sd]/,arguments[i]);
+				switch (that.match(/%([sdfF])/)[1]) {
+					case 'd':
+						arguments[i] = parseInt(arguments[i]);
+						break;
+					case 'f':
+					case 'F':
+						arguments[i] = parseFloat(arguments[i]);
+						break;
+				}
+				that = that.replace(/%[sdfF]/,arguments[i]);
 			}
 		}
 		return that;
