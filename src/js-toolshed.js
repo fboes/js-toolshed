@@ -19,6 +19,9 @@
 					case 'F':
 						arguments[i] = parseFloat(arguments[i]);
 						break;
+					case 's':
+						arguments[i] = String(arguments[i]);
+						break;
 				}
 				that = that.replace(/%[sdfF]/,arguments[i]);
 			}
@@ -85,8 +88,7 @@
 					thisString = '0' + thisString;
 				}
 			}
-		}
-		else {
+		} else {
 			for (i = (digits - 1); i > 0; i--) {
 				if (this > -Math.pow(10,i)) {
 					thisString = '0' + thisString;
@@ -200,11 +202,14 @@
 		 * @return {Element}          [description]
 		 */
 		Element.prototype.toggleClassName = function (className) {
-			if (this.hasClassName(className)) {
-				return this.removeClassName(className);
+			if (this.classList) {
+				this.classList.toggle(className);
+			} else if (this.hasClassName(className)) {
+				this.removeClassName(className);
 			} else {
-				return this.addClassName(className);
+				this.addClassName(className);
 			}
+			return this;
 		};
 
 		Element.prototype.setHTML = function (html) {
@@ -252,8 +257,7 @@
 		Document.prototype.ready = function (fn) {
 			if (document.addEventListener) {
 				document.addEventListener('DOMContentLoaded', fn);
-			}
-			else {
+			} else {
 				document.attachEvent('onreadystatechange', function() {
 					if (document.readyState != 'loading') {
 						fn();
@@ -285,8 +289,7 @@ DateSetFromIsoString = function (dateString) {
 		for (i = 0; i <= 9; i++) {
 			if (!dateValues[i]) {
 				dateValues[i] = 0;
-			}
-			else if (i !== 7) {
+			} else if (i !== 7) {
 				dateValues[i] = parseInt(dateValues[i]);
 			}
 		}
