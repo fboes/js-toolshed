@@ -42,7 +42,14 @@
 	 * @return {String}           [description]
 	 */
 	String.prototype.toId = function () {
-		return '#'+ this.toLowerCase().replace(/[^a-z0-9]/g,'-').replace(/^([^a-z])/,'id$1');
+		return '#'+ this.toLowerCase()
+			.replace(/[äáàâ]/g,'a')
+			.replace(/[üúùû]/g,'u')
+			.replace(/[öóòô]/g,'o')
+			.replace(/[ëéèê]/g,'o')
+			.replace(/[^a-z0-9]/g,'-')
+			.replace(/^([^a-z])/,'id$1')
+		;
 	};
 
 	/**

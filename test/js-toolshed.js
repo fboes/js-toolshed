@@ -1,9 +1,8 @@
 var toolshed = require('../build/js-toolshed');
 
-
 exports.testStringFunctionality = function(test) {
 	'use strict';
-	test.expect(2+21+4);
+	test.expect(2+22+4);
 
 	test.ok(String, 'There is a String.');
 	test.strictEqual(String('x'), 'x', 'What is a string?');
@@ -25,7 +24,8 @@ exports.testStringFunctionality = function(test) {
 	test.strictEqual('X'.toId(), '#x', 'Lower-casing');
 	test.strictEqual('X Y'.toId(), '#x-y', 'Lower-casing');
 	test.strictEqual('1 X Y'.toId(), '#id1-x-y', 'Lower-casing');
-	test.strictEqual('üöä'.toId(), '#id---', 'Lower-casing');
+	test.strictEqual('üöä'.toId(), '#uoa', 'Lower-casing');
+	test.strictEqual('ß'.toId(), '#id-', 'Lower-casing');
 
 	// String.htmlEncode
 	test.strictEqual('x'.htmlEncode(), 'x', 'htmlEncode() without any special stuff.');

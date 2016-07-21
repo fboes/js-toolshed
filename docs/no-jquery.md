@@ -17,6 +17,8 @@ Your ressources for building stuff are:
 How to do stuff
 ---------------------
 
+Patrick Kunka summed up his experience in [A Year Without jQuery](http://blog.wearecolony.com/a-year-without-jquery/).
+
 ### Querying for elements
 
 * [`Document.getElementById()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
@@ -24,29 +26,25 @@ How to do stuff
 * [`Element.matches()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) which is [not widely supported](http://caniuse.com/#feat=matchesselector)
 * [`Element.closest()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) which is [not widely supported](http://caniuse.com/#feat=element-closest)
 
-#### Altering attributes:
+### Altering attributes:
 
 * [`Element.hasAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/hasAttribute)
 * [`Element.getAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute)
 * [`Element.setAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
 * [`Element.removeAttribute()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute)
 
-#### Event handling
+### Event handling
 
 * `EventTarget.addEventListener()`
 * `EventTarget.removeEventListener()`
 
-#### Cookie- & request-handling
+### Cookie- & request-handling
 
 * [Cookies](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
 
 For other stuff you will find ample polyfills in [jquery-legacy.js](../src/jquery-legacy.js) and extensions of native protoypes in [jquery-toolshed.js](../src/jquery-toolshed.js).
 
 You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
-
----
-
-Patrick Kunka summed up his experience in [A Year Without jQuery](http://blog.wearecolony.com/a-year-without-jquery/).
 
 How to build stuff
 ------------------

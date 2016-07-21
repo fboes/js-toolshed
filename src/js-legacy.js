@@ -76,4 +76,3 @@ if (typeof console == "undefined" || typeof console.log == "undefined") {
 		error: function() {}
 	};
 }
-
