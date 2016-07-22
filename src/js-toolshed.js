@@ -253,6 +253,24 @@
 		};
 	}
 
+	if (typeof EventTarget !== 'undefined') {
+		/** @class EventTarget */
+
+		/**
+		 * Add event listener to an element, but only react to special sub elements of this element. Useful for having one single event listener for multiple elements.
+		 * @param {string}   type     Event type to listen for. E.g. `click`.
+		 * @param {string}   selector Selector like in `.matches()`. E.g. `.click`.
+		 * @param {Function} fn       function(e), where `this` is the filtered element, and `e` the event object
+		 */
+		EventTarget.prototype.addBubbledEventListener = function ( type, selector, fn ) {
+			this.addEventListener( type, function(e) {
+				if (e.target.matches(selector)) {
+					fn.call(e.target,e);
+				}
+			});
+		};
+	}
+
 	if (typeof Document !== 'undefined') {
 		/** @class Document */
 

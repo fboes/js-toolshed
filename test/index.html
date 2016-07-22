@@ -13,6 +13,7 @@
 		#message {transition:all 0.5s ease;padding:0.5em;background:#fee;}
 		#main {transition:all 0.5s ease;background:transparent;}
 		#main.secondary, #message.success {background:#efe;}
+		li.secondary {font-weight:bold;}
 		#footer {font-size:0.8em;margin-top:1em;padding-top:1em;border-top:1px dotted;color:rgba(0,0,0,0.5);text-align:right;}
 	</style>
 </head>
@@ -38,6 +39,16 @@
 						<input for="range-2" id="range-2-output" name="range-2-output" type="number" max="100" min="0" step="1" value="50" />
 					</div>
 				</form>
+				<ul>
+					<li>No target</li>
+					<li>No target</li>
+					<li>No target</li>
+				</ul>
+				<ul id="target">
+					<li>Target, click me</li>
+					<li>Target, click me</li>
+					<li>Target, click me</li>
+				</ul>
 				<p id="message">An error occured</p>
 			</main>
 		</div>
@@ -77,7 +88,11 @@
 		console.log(a);
 
 		document.getElementById('main').addEventListener('click', function() {
-			this.toggleClassName('secondary')
+			this.toggleClassName('secondary');
+		});
+
+		document.getElementById('target').addBubbledEventListener('click', 'li', function(e) {
+			this.toggleClassName('secondary');
 		});
 
 		console.log(DateSetFromIsoString('2013-09-18T14:00:00+02:00').toUTCString());
@@ -106,7 +121,7 @@
 			console.log(a,b);
 		});
 
-		console.log(window.location.getParameters());
+		console.log(window.location.getSearchObject());
 
 		document.getElementById('message').setHTML('All scripts completed successfully').addClassName('success');
 	});

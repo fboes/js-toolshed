@@ -5,7 +5,7 @@ js-toolshed
 
 Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.
 
-And remember: [You might not need jQuery](docs/no-jquery.js) and use [Vanilla JS](http://vanilla-js.com/) instead.
+And remember: [You might not need jQuery](docs/no-jquery.md) and use [Vanilla JS](http://vanilla-js.com/) instead.
 
 Installation
 ------------

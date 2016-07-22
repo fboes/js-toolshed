@@ -19,6 +19,8 @@
 <dd></dd>
 <dt><a href="#NodeList">NodeList</a></dt>
 <dd></dd>
+<dt><a href="#EventTarget">EventTarget</a></dt>
+<dd></dd>
 <dt><a href="#Document">Document</a></dt>
 <dd></dd>
 </dl>
@@ -106,6 +108,7 @@ Remove classname from element if present, add classname if not present
 * [EventTarget](#EventTarget)
     * [.addEventListener(type, fn)](#EventTarget+addEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
     * [.removeEventListener(type, fn)](#EventTarget+removeEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
+    * [.addBubbledEventListener(type, selector, fn)](#EventTarget+addBubbledEventListener)
 
 <a name="EventTarget+addEventListener"></a>
 
@@ -133,6 +136,19 @@ Remove an event
 | type | <code>string</code> | [description] |
 | fn | <code>function</code> | [description] |
 
+<a name="EventTarget+addBubbledEventListener"></a>
+
+### eventTarget.addBubbledEventListener(type, selector, fn)
+Add event listener to an element, but only react to special sub elements of this element. Useful for having one single event listener for multiple elements.
+
+**Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | Event type to listen for. E.g. `click`. |
+| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.click`. |
+| fn | <code>function</code> | function(e), where `this` is the filtered element, and `e` the event object |
+
 <a name="String"></a>
 
 ## String
@@ -156,7 +172,7 @@ Remove whitespaces around string
 <a name="String+sprintf"></a>
 
 ### string.sprintf(args) ⇒ <code>[String](#String)</code>
-Replace `%s` in given string with parameters
+Replace `%s`, `%d`, `%f` in given string with parameters
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
@@ -363,6 +379,55 @@ Run function with all Nodes contained in a NodeList.
 | Param | Type | Description |
 | --- | --- | --- |
 | fn | <code>function</code> | function(currentNode,index,NodeList){}, `this` being currentNode |
+
+<a name="EventTarget"></a>
+
+## EventTarget
+**Kind**: global class  
+
+* [EventTarget](#EventTarget)
+    * [.addEventListener(type, fn)](#EventTarget+addEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
+    * [.removeEventListener(type, fn)](#EventTarget+removeEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
+    * [.addBubbledEventListener(type, selector, fn)](#EventTarget+addBubbledEventListener)
+
+<a name="EventTarget+addEventListener"></a>
+
+### eventTarget.addEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
+Add an event
+
+**Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
+**Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | [description] |
+| fn | <code>function</code> | [description] |
+
+<a name="EventTarget+removeEventListener"></a>
+
+### eventTarget.removeEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
+Remove an event
+
+**Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
+**Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | [description] |
+| fn | <code>function</code> | [description] |
+
+<a name="EventTarget+addBubbledEventListener"></a>
+
+### eventTarget.addBubbledEventListener(type, selector, fn)
+Add event listener to an element, but only react to special sub elements of this element. Useful for having one single event listener for multiple elements.
+
+**Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | Event type to listen for. E.g. `click`. |
+| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.click`. |
+| fn | <code>function</code> | function(e), where `this` is the filtered element, and `e` the event object |
 
 <a name="Document"></a>
 
