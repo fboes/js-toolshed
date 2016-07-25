@@ -212,7 +212,7 @@
 		Element.prototype.toggleClassName = function (className, force) {
 			if (this.classList) {
 				this.classList.toggle(className, force);
-			} else if (force !== 'undefined') {
+			} else if (typeof force !== 'undefined') {
 				if (force) {
 					this.addClassName(className);
 				} else {
