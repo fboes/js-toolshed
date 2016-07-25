@@ -11,13 +11,15 @@ For effects just alter classes of elements and use CSS3 animations.
 
 Your ressources for building stuff are:
 
-* [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API) for exact API references
-* [Can I Use](http://caniuse.com/) for checking browser compatibility
+* [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API) for exact API references.
+* [Can I Use](http://caniuse.com/) for checking browser compatibility.
+
+Keep in mind that most advanced stuff only works properly in Chrome, Firefox, Safari and IE9+. For older browsers you will find some polyfills in [jquery-legacy.js](../src/jquery-legacy.js).
 
 How to do stuff
 ---------------------
-
-Patrick Kunka summed up his experience in [A Year Without jQuery](http://blog.wearecolony.com/a-year-without-jquery/).
+ 
+Patrick Kunka summed up his experience in [A Year Without jQuery](http://blog.wearecolony.com/a-year-without-jquery/). You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
 
 ### Querying for elements
 
@@ -42,11 +44,14 @@ Patrick Kunka summed up his experience in [A Year Without jQuery](http://blog.we
 
 * [Cookies](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
 
-For other stuff you will find ample polyfills in [jquery-legacy.js](../src/jquery-legacy.js) and extensions of native protoypes in [jquery-toolshed.js](../src/jquery-toolshed.js).
+### Other stuff
 
-You may also want to take a look at [YOU MIGHT NOT NEED JQUERY](http://youmightnotneedjquery.com/).
+* [Parsing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) & [stringifying JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+* …and extensions of native protoypes in [jquery-toolshed.js](../src/jquery-toolshed.js).
 
 How to build stuff
 ------------------
 
-1. Use [JSLINT](https://github.com/stephenmathieson/grunt-jslint) or the slighly less strict [JSHint](https://github.com/gruntjs/grunt-contrib-jshint) to keep your programming clean
+0. Add `use strict` to activate [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode). This will make your browser mark common mistakes as errors, so they are easier to find.
+1. Use [JSLINT](https://github.com/stephenmathieson/grunt-jslint) or the slighly less strict [JSHint](https://github.com/gruntjs/grunt-contrib-jshint) to keep your programming clean.
+2. Use `uglify` to compress your code for production environments.
