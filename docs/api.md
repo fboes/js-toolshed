@@ -44,7 +44,7 @@
     * [.hasClassName(className)](#Element+hasClassName) ⇒ <code>Boolean</code>
     * [.addClassName(className)](#Element+addClassName) ⇒ <code>[Element](#Element)</code>
     * [.removeClassName(className)](#Element+removeClassName) ⇒ <code>[Element](#Element)</code>
-    * [.toggleClassName(className)](#Element+toggleClassName) ⇒ <code>[Element](#Element)</code>
+    * [.toggleClassName(className, force)](#Element+toggleClassName) ⇒ <code>[Element](#Element)</code>
 
 <a name="Element+matches"></a>
 
@@ -103,8 +103,8 @@ Remove classname from given element
 
 <a name="Element+toggleClassName"></a>
 
-### element.toggleClassName(className) ⇒ <code>[Element](#Element)</code>
-Remove classname from element if present, add classname if not present
+### element.toggleClassName(className, force) ⇒ <code>[Element](#Element)</code>
+Remove classname from element if present, add classname if not present. If second parameter is set to `true`, the class will be always added, if it is set to `false` it will be always removed.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
 **Returns**: <code>[Element](#Element)</code> - [description]  
@@ -112,6 +112,7 @@ Remove classname from element if present, add classname if not present
 | Param | Type | Description |
 | --- | --- | --- |
 | className | <code>[String](#String)</code> | [description] |
+| force | <code>bool</code> | Optional. If this is present, it will set the class if `true`, else remove that class. |
 
 <a name="EventTarget"></a>
 
@@ -321,7 +322,7 @@ Run function on all properties of an object.
     * [.hasClassName(className)](#Element+hasClassName) ⇒ <code>Boolean</code>
     * [.addClassName(className)](#Element+addClassName) ⇒ <code>[Element](#Element)</code>
     * [.removeClassName(className)](#Element+removeClassName) ⇒ <code>[Element](#Element)</code>
-    * [.toggleClassName(className)](#Element+toggleClassName) ⇒ <code>[Element](#Element)</code>
+    * [.toggleClassName(className, force)](#Element+toggleClassName) ⇒ <code>[Element](#Element)</code>
 
 <a name="Element+matches"></a>
 
@@ -380,8 +381,8 @@ Remove classname from given element
 
 <a name="Element+toggleClassName"></a>
 
-### element.toggleClassName(className) ⇒ <code>[Element](#Element)</code>
-Remove classname from element if present, add classname if not present
+### element.toggleClassName(className, force) ⇒ <code>[Element](#Element)</code>
+Remove classname from element if present, add classname if not present. If second parameter is set to `true`, the class will be always added, if it is set to `false` it will be always removed.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
 **Returns**: <code>[Element](#Element)</code> - [description]  
@@ -389,6 +390,7 @@ Remove classname from element if present, add classname if not present
 | Param | Type | Description |
 | --- | --- | --- |
 | className | <code>[String](#String)</code> | [description] |
+| force | <code>bool</code> | Optional. If this is present, it will set the class if `true`, else remove that class. |
 
 <a name="NodeList"></a>
 

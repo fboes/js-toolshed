@@ -204,13 +204,20 @@
 		};
 
 		/**
-		 * Remove classname from element if present, add classname if not present
+		 * Remove classname from element if present, add classname if not present. If second parameter is set to `true`, the class will be always added, if it is set to `false` it will be always removed.
 		 * @param  {String} className [description]
+		 * @param  {bool}   force     Optional. If this is present, it will set the class if `true`, else remove that class.
 		 * @return {Element}          [description]
 		 */
-		Element.prototype.toggleClassName = function (className) {
+		Element.prototype.toggleClassName = function (className, force) {
 			if (this.classList) {
-				this.classList.toggle(className);
+				this.classList.toggle(className, force);
+			} else if (force !== 'undefined') {
+				if (force) {
+					this.addClassName(className);
+				} else {
+					this.removeClassName(className);
+				}
 			} else if (this.hasClassName(className)) {
 				this.removeClassName(className);
 			} else {

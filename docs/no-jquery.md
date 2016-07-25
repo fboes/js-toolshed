@@ -35,8 +35,8 @@ Patrick Kunka summed up his experience in [A Year Without jQuery](http://blog.we
 
 ### Event handling
 
-* `EventTarget.addEventListener()`
-* `EventTarget.removeEventListener()`
+* [`EventTarget.addEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+* [`EventTarget.removeEventListener()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
 
 ### Cookie- & request-handling
 
