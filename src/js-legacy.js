@@ -2,7 +2,7 @@
 	'use strict';
 	if (!String.prototype.trim) {
 		/**
-		 * Remove whitespaces around string. Available in Chrome, FF 3.5, IE 9, Safari 5.
+		 * Remove whitespaces around string. Already available in Chrome, FF 3.5, IE 9, Safari 5.
 		 * @return {String}         [description]
 		 */
 		String.prototype.trim = function () {
@@ -13,7 +13,7 @@
 	/** @class Element */
 	if (!Element.prototype.matches) {
 		/**
-		 * The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Available in Chrome 34, FF 34, Safari 7.
+		 * The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Already available in Chrome 34, FF 34, Safari 7.
 		 * @param  {string} selector [description]
 		 * @return {bool}            [description]
 		 */
@@ -24,7 +24,7 @@
 
 	if (!Element.prototype.closest) {
 		/**
-		 * Find closest match to given selector, starting at current element and traversing up. Available in Chrome 41, FF 35, Safari 9.
+		 * Find closest match to given selector, starting at current element and traversing up. Already available in Chrome 41, FF 35, Safari 9.
 		 * @return {Element}   [description]
 		 */
 		Element.prototype.closest = function (selector) {
@@ -42,7 +42,7 @@
 	/** @class EventTarget */
 	if (!EventTarget.prototype.addEventListener) {
 		/**
-		 * Add an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
+		 * Add an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 		 * @param {string}   type [description]
 		 * @param {Function} fn   [description]
 		 * @return {EventTarget}         [description]
@@ -58,7 +58,7 @@
 	}
 	if (!EventTarget.prototype.removeEventListener) {
 		/**
-		 * Remove an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
+		 * Remove an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 		 * @param {string}   type [description]
 		 * @param {Function} fn   [description]
 		 * @return {EventTarget}         [description]
@@ -75,7 +75,7 @@
 }());
 
 if (typeof console == "undefined" || typeof console.log == "undefined") {
-	// Available in Chrome, Firefox 4, Internet Explorer 8, Safari.
+	// Already available in Chrome, Firefox 4, Internet Explorer 8, Safari.
 	var console = {
 		assert: function() {},
 		log: function() {},

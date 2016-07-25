@@ -49,7 +49,7 @@
 <a name="Element+matches"></a>
 
 ### element.matches(selector) ⇒ <code>bool</code>
-The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Available in Chrome 34, FF 34, Safari 7.
+The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Already available in Chrome 34, FF 34, Safari 7.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
 **Returns**: <code>bool</code> - [description]  
@@ -61,7 +61,7 @@ The Element.matches() method returns true if the element would be selected by th
 <a name="Element+closest"></a>
 
 ### element.closest() ⇒ <code>[Element](#Element)</code>
-Find closest match to given selector, starting at current element and traversing up. Available in Chrome 41, FF 35, Safari 9.
+Find closest match to given selector, starting at current element and traversing up. Already available in Chrome 41, FF 35, Safari 9.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
 **Returns**: <code>[Element](#Element)</code> - [description]  
@@ -127,7 +127,7 @@ Remove classname from element if present, add classname if not present. If secon
 <a name="EventTarget+addEventListener"></a>
 
 ### eventTarget.addEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
-Add an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
+Add an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 **Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
 **Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
@@ -140,7 +140,7 @@ Add an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
 <a name="EventTarget+removeEventListener"></a>
 
 ### eventTarget.removeEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
-Remove an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
+Remove an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 **Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
 **Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
@@ -160,7 +160,7 @@ Add event listener to an element, but only react to special sub elements of this
 | Param | Type | Description |
 | --- | --- | --- |
 | type | <code>string</code> | Event type to listen for. E.g. `click`. |
-| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.click`. |
+| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.button`. |
 | fn | <code>function</code> | function(e), where `this` is the filtered element, and `e` the event object |
 
 <a name="String"></a>
@@ -179,7 +179,7 @@ Add event listener to an element, but only react to special sub elements of this
 <a name="String+trim"></a>
 
 ### string.trim() ⇒ <code>[String](#String)</code>
-Remove whitespaces around string. Available in Chrome, FF 3.5, IE 9, Safari 5.
+Remove whitespaces around string. Already available in Chrome, FF 3.5, IE 9, Safari 5.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
@@ -222,11 +222,11 @@ Convert string to XML / HTML safe string
 Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getParameters() for implementation.
 
 **Kind**: instance method of <code>[String](#String)</code>  
-**Returns**: <code>[Object](#Object)</code> - [description]  
+**Returns**: <code>[Object](#Object)</code> - E.g. `{a:'b',c:'d'}`  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| splitter | <code>RegExp</code> | term to split pars of values |
+| splitter | <code>RegExp</code> | term to split key/value-pairs |
 
 <a name="Number"></a>
 
@@ -327,7 +327,7 @@ Run function on all properties of an object.
 <a name="Element+matches"></a>
 
 ### element.matches(selector) ⇒ <code>bool</code>
-The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Available in Chrome 34, FF 34, Safari 7.
+The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Already available in Chrome 34, FF 34, Safari 7.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
 **Returns**: <code>bool</code> - [description]  
@@ -339,7 +339,7 @@ The Element.matches() method returns true if the element would be selected by th
 <a name="Element+closest"></a>
 
 ### element.closest() ⇒ <code>[Element](#Element)</code>
-Find closest match to given selector, starting at current element and traversing up. Available in Chrome 41, FF 35, Safari 9.
+Find closest match to given selector, starting at current element and traversing up. Already available in Chrome 41, FF 35, Safari 9.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
 **Returns**: <code>[Element](#Element)</code> - [description]  
@@ -421,7 +421,7 @@ Run function with all Nodes contained in a NodeList.
 <a name="EventTarget+addEventListener"></a>
 
 ### eventTarget.addEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
-Add an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
+Add an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 **Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
 **Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
@@ -434,7 +434,7 @@ Add an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
 <a name="EventTarget+removeEventListener"></a>
 
 ### eventTarget.removeEventListener(type, fn) ⇒ <code>[EventTarget](#EventTarget)</code>
-Remove an event. Available in Chrome 1, Firefox 1, IE 9, Safari 1.
+Remove an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 **Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
 **Returns**: <code>[EventTarget](#EventTarget)</code> - [description]  
@@ -454,7 +454,7 @@ Add event listener to an element, but only react to special sub elements of this
 | Param | Type | Description |
 | --- | --- | --- |
 | type | <code>string</code> | Event type to listen for. E.g. `click`. |
-| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.click`. |
+| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.button`. |
 | fn | <code>function</code> | function(e), where `this` is the filtered element, and `e` the event object |
 
 <a name="Document"></a>

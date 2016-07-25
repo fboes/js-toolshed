@@ -1,7 +1,7 @@
 {
   "name": "js-toolshed",
   "description": "Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "keywords": [
     "vanilla-js",
     "prototypes"

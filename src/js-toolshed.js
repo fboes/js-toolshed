@@ -62,8 +62,8 @@
 
 	/**
 	 * Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getParameters() for implementation.
-	 * @param  {RegExp} splitter term to split pars of values
-	 * @return {Object}          [description]
+	 * @param  {RegExp}  splitter term to split key/value-pairs
+	 * @return {Object}  E.g. `{a:'b',c:'d'}`
 	 */
 	String.prototype.paramsToObject = function (splitter) {
 		var obj = {}, parts, i, currItem;
@@ -266,7 +266,7 @@
 		/**
 		 * Add event listener to an element, but only react to special sub elements of this element. Useful for having one single event listener for multiple elements.
 		 * @param {string}   type     Event type to listen for. E.g. `click`.
-		 * @param {string}   selector Selector like in `.matches()`. E.g. `.click`.
+		 * @param {string}   selector Selector like in `.matches()`. E.g. `.button`.
 		 * @param {Function} fn       function(e), where `this` is the filtered element, and `e` the event object
 		 */
 		EventTarget.prototype.addBubbledEventListener = function ( type, selector, fn ) {

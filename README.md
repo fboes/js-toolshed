@@ -24,16 +24,18 @@ See the [auto documentation](docs/api.md) for new methods to use.
 * `Array` gets new methods for smart adding of new values and fast manipulation of values.
 * `String` gets lots of new methods for outputting various stuff.
 * An improved `Date`-object acts as a parser for ISO-formatted dates.
-* `Elemente` gets methods for class- and event-manipulation like in jQuery.
+* `Elements` gets methods for class- and event-manipulation like in jQuery.
 
 There is also [a small polyfill](src/js-legacy.js) to give older browsers some new Javascript methods.
 
 * There is a stub `console` for old browsers.
+* Added methods for adding `Events`.
+* New methods for selecting `Nodes` added.
 
 Version
 -------
 
-Version: 1.2.2 (2016-06-02)
+Version: 1.2.3 (2016-07-25)
 
 Legal stuff
 -----------
