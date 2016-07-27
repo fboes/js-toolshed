@@ -14,8 +14,8 @@
 	if (!Element.prototype.matches) {
 		/**
 		 * The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Already available in Chrome 34, FF 34, Safari 7.
-		 * @param  {string} selector [description]
-		 * @return {bool}            [description]
+		 * @param  {String} selector [description]
+		 * @return {Boolean}         [description]
 		 */
 		Element.prototype.matches = function (selector) {
 			return (this.matchesSelector || this.msMatchesSelector || this.mozMatchesSelector || this.webkitMatchesSelector || this.oMatchesSelector).call(this, selector);
@@ -43,7 +43,7 @@
 	if (!EventTarget.prototype.addEventListener) {
 		/**
 		 * Add an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
-		 * @param {string}   type [description]
+		 * @param {String}   type [description]
 		 * @param {Function} fn   [description]
 		 * @return {EventTarget}         [description]
 		 */
@@ -59,7 +59,7 @@
 	if (!EventTarget.prototype.removeEventListener) {
 		/**
 		 * Remove an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
-		 * @param {string}   type [description]
+		 * @param {String}   type [description]
 		 * @param {Function} fn   [description]
 		 * @return {EventTarget}         [description]
 		 */

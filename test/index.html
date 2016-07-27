@@ -65,7 +65,6 @@
 	$('#message').getScriptWithCache('index.js', function() {
 		$(this).html('Script has loaded &amp; callback fired!');
 	});
-
 	/*]]>*/</script>
 
 
@@ -73,20 +72,6 @@
 	<script src="../build/js-legacy.js"></script>
 	<script>/*<![CDATA[*/
 	document.ready(function() {
-		var i = 23.456;
-		console.log(i.toFixedString(3));
-		console.log('#abc'.fromId());
-		console.log('There are %s monkeys in the forest'.sprintf(2));
-		console.log('%s monkeys cost %s'.sprintf(2,3));
-
-		console.log(Math.roundPrecision(22.673667, 2));
-
-		var a = [];
-		a.pushOnNotEmpty(1);
-		a.pushOnNotEmpty('');
-		a.pushOnNotEmpty('x');
-		console.log(a);
-
 		document.getElementById('main').addEventListener('click', function() {
 			this.toggleClassName('secondary');
 		});
@@ -94,8 +79,6 @@
 		document.getElementById('target').addBubbledEventListener('click', 'li', function(e) {
 			this.toggleClassName('secondary');
 		});
-
-		console.log(DateSetFromIsoString('2013-09-18T14:00:00+02:00').toUTCString());
 
 		var b = document.getElementById('textarea');
 		console.log([
@@ -109,16 +92,6 @@
 		c.forEachNode(function(index) {
 			console.log(index);
 			this.addClassName('i-am-div');
-		});
-
-		var d = {
-			'a':1,
-			'b':2,
-			'c':3
-		}
-		console.log(Object.getPrototypeOf(d));
-		d.forEachProperty(function(a,b) {
-			console.log(a,b);
 		});
 
 		console.log(window.location.getSearchObject());

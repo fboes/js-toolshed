@@ -205,9 +205,9 @@
 
 		/**
 		 * Remove classname from element if present, add classname if not present. If second parameter is set to `true`, the class will be always added, if it is set to `false` it will be always removed.
-		 * @param  {String} className [description]
-		 * @param  {bool}   force     Optional. If this is present, it will set the class if `true`, else remove that class.
-		 * @return {Element}          [description]
+		 * @param  {String}  className [description]
+		 * @param  {Boolean} force     Optional. If this is present, it will set the class if `true`, else remove that class.
+		 * @return {Element}           [description]
 		 */
 		Element.prototype.toggleClassName = function (className, force) {
 			if (this.classList) {
@@ -265,16 +265,17 @@
 
 		/**
 		 * Add event listener to an element, but only react to special sub elements of this element. Useful for having one single event listener for multiple elements.
-		 * @param {string}   type     Event type to listen for. E.g. `click`.
-		 * @param {string}   selector Selector like in `.matches()`. E.g. `.button`.
+		 * @param {String}   type     Event type to listen for. E.g. `click`.
+		 * @param {String}   selector Selector like in `.matches()`. E.g. `.button`.
+		 * @param {Boolean}  useCapture  Like in `addEventListener()`
 		 * @param {Function} fn       function(e), where `this` is the filtered element, and `e` the event object
 		 */
-		EventTarget.prototype.addBubbledEventListener = function ( type, selector, fn ) {
+		EventTarget.prototype.addBubbledEventListener = function ( type, selector, fn, useCapture ) {
 			this.addEventListener( type, function(e) {
 				if (e.target.matches(selector)) {
 					fn.call(e.target,e);
 				}
-			});
+			}, useCapture);
 		};
 	}
 

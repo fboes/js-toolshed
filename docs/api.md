@@ -39,7 +39,7 @@
 **Kind**: global class  
 
 * [Element](#Element)
-    * [.matches(selector)](#Element+matches) ⇒ <code>bool</code>
+    * [.matches(selector)](#Element+matches) ⇒ <code>Boolean</code>
     * [.closest()](#Element+closest) ⇒ <code>[Element](#Element)</code>
     * [.hasClassName(className)](#Element+hasClassName) ⇒ <code>Boolean</code>
     * [.addClassName(className)](#Element+addClassName) ⇒ <code>[Element](#Element)</code>
@@ -48,15 +48,15 @@
 
 <a name="Element+matches"></a>
 
-### element.matches(selector) ⇒ <code>bool</code>
+### element.matches(selector) ⇒ <code>Boolean</code>
 The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Already available in Chrome 34, FF 34, Safari 7.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
-**Returns**: <code>bool</code> - [description]  
+**Returns**: <code>Boolean</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| selector | <code>string</code> | [description] |
+| selector | <code>[String](#String)</code> | [description] |
 
 <a name="Element+closest"></a>
 
@@ -112,7 +112,7 @@ Remove classname from element if present, add classname if not present. If secon
 | Param | Type | Description |
 | --- | --- | --- |
 | className | <code>[String](#String)</code> | [description] |
-| force | <code>bool</code> | Optional. If this is present, it will set the class if `true`, else remove that class. |
+| force | <code>Boolean</code> | Optional. If this is present, it will set the class if `true`, else remove that class. |
 
 <a name="EventTarget"></a>
 
@@ -122,7 +122,7 @@ Remove classname from element if present, add classname if not present. If secon
 * [EventTarget](#EventTarget)
     * [.addEventListener(type, fn)](#EventTarget+addEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
     * [.removeEventListener(type, fn)](#EventTarget+removeEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
-    * [.addBubbledEventListener(type, selector, fn)](#EventTarget+addBubbledEventListener)
+    * [.addBubbledEventListener(type, selector, useCapture, fn)](#EventTarget+addBubbledEventListener)
 
 <a name="EventTarget+addEventListener"></a>
 
@@ -134,7 +134,7 @@ Add an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| type | <code>string</code> | [description] |
+| type | <code>[String](#String)</code> | [description] |
 | fn | <code>function</code> | [description] |
 
 <a name="EventTarget+removeEventListener"></a>
@@ -147,20 +147,21 @@ Remove an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| type | <code>string</code> | [description] |
+| type | <code>[String](#String)</code> | [description] |
 | fn | <code>function</code> | [description] |
 
 <a name="EventTarget+addBubbledEventListener"></a>
 
-### eventTarget.addBubbledEventListener(type, selector, fn)
+### eventTarget.addBubbledEventListener(type, selector, useCapture, fn)
 Add event listener to an element, but only react to special sub elements of this element. Useful for having one single event listener for multiple elements.
 
 **Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| type | <code>string</code> | Event type to listen for. E.g. `click`. |
-| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.button`. |
+| type | <code>[String](#String)</code> | Event type to listen for. E.g. `click`. |
+| selector | <code>[String](#String)</code> | Selector like in `.matches()`. E.g. `.button`. |
+| useCapture | <code>Boolean</code> | Like in `addEventListener()` |
 | fn | <code>function</code> | function(e), where `this` is the filtered element, and `e` the event object |
 
 <a name="String"></a>
@@ -317,7 +318,7 @@ Run function on all properties of an object.
 **Kind**: global class  
 
 * [Element](#Element)
-    * [.matches(selector)](#Element+matches) ⇒ <code>bool</code>
+    * [.matches(selector)](#Element+matches) ⇒ <code>Boolean</code>
     * [.closest()](#Element+closest) ⇒ <code>[Element](#Element)</code>
     * [.hasClassName(className)](#Element+hasClassName) ⇒ <code>Boolean</code>
     * [.addClassName(className)](#Element+addClassName) ⇒ <code>[Element](#Element)</code>
@@ -326,15 +327,15 @@ Run function on all properties of an object.
 
 <a name="Element+matches"></a>
 
-### element.matches(selector) ⇒ <code>bool</code>
+### element.matches(selector) ⇒ <code>Boolean</code>
 The Element.matches() method returns true if the element would be selected by the specified selector string; otherwise, returns false. Already available in Chrome 34, FF 34, Safari 7.
 
 **Kind**: instance method of <code>[Element](#Element)</code>  
-**Returns**: <code>bool</code> - [description]  
+**Returns**: <code>Boolean</code> - [description]  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| selector | <code>string</code> | [description] |
+| selector | <code>[String](#String)</code> | [description] |
 
 <a name="Element+closest"></a>
 
@@ -390,7 +391,7 @@ Remove classname from element if present, add classname if not present. If secon
 | Param | Type | Description |
 | --- | --- | --- |
 | className | <code>[String](#String)</code> | [description] |
-| force | <code>bool</code> | Optional. If this is present, it will set the class if `true`, else remove that class. |
+| force | <code>Boolean</code> | Optional. If this is present, it will set the class if `true`, else remove that class. |
 
 <a name="NodeList"></a>
 
@@ -416,7 +417,7 @@ Run function with all Nodes contained in a NodeList.
 * [EventTarget](#EventTarget)
     * [.addEventListener(type, fn)](#EventTarget+addEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
     * [.removeEventListener(type, fn)](#EventTarget+removeEventListener) ⇒ <code>[EventTarget](#EventTarget)</code>
-    * [.addBubbledEventListener(type, selector, fn)](#EventTarget+addBubbledEventListener)
+    * [.addBubbledEventListener(type, selector, useCapture, fn)](#EventTarget+addBubbledEventListener)
 
 <a name="EventTarget+addEventListener"></a>
 
@@ -428,7 +429,7 @@ Add an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| type | <code>string</code> | [description] |
+| type | <code>[String](#String)</code> | [description] |
 | fn | <code>function</code> | [description] |
 
 <a name="EventTarget+removeEventListener"></a>
@@ -441,20 +442,21 @@ Remove an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| type | <code>string</code> | [description] |
+| type | <code>[String](#String)</code> | [description] |
 | fn | <code>function</code> | [description] |
 
 <a name="EventTarget+addBubbledEventListener"></a>
 
-### eventTarget.addBubbledEventListener(type, selector, fn)
+### eventTarget.addBubbledEventListener(type, selector, useCapture, fn)
 Add event listener to an element, but only react to special sub elements of this element. Useful for having one single event listener for multiple elements.
 
 **Kind**: instance method of <code>[EventTarget](#EventTarget)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| type | <code>string</code> | Event type to listen for. E.g. `click`. |
-| selector | <code>string</code> | Selector like in `.matches()`. E.g. `.button`. |
+| type | <code>[String](#String)</code> | Event type to listen for. E.g. `click`. |
+| selector | <code>[String](#String)</code> | Selector like in `.matches()`. E.g. `.button`. |
+| useCapture | <code>Boolean</code> | Like in `addEventListener()` |
 | fn | <code>function</code> | function(e), where `this` is the filtered element, and `e` the event object |
 
 <a name="Document"></a>
