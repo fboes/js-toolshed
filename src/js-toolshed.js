@@ -3,7 +3,7 @@
 	/** @class String */
 
 	/**
-	 * Replace `%s`, `%d`, `%f` in given string with parameters
+	 * Replace `%s`, `%d`, `%f` in given string with parameters.
 	 * @param  {scalar}  args One or morge arguments
 	 * @return {String}         [description]
 	 */
@@ -30,7 +30,7 @@
 	};
 
 	/**
-	 * Convert `#string` into `string`
+	 * Convert `#string` into `string`.
 	 * @return {String}           [description]
 	 */
 	String.prototype.fromId = function () {
@@ -38,7 +38,7 @@
 	};
 
 	/**
-	 * Convert `#string` into `string`
+	 * Convert `#string` into `string`.
 	 * @return {String}           [description]
 	 */
 	String.prototype.toId = function () {
@@ -53,7 +53,7 @@
 	};
 
 	/**
-	 * Convert string to XML / HTML safe string
+	 * Convert string to XML / HTML safe string.
 	 * @return {String}           [description]
 	 */
 	String.prototype.htmlEncode = function () {
@@ -79,7 +79,7 @@
 	/** @class Number */
 
 	/**
-	 * Convert a number to a string representation with a fixed width, e.g. by padding it with `0`. See also `.toFixed()` for padding the deicmals of a given number.
+	 * Convert a number to a string representation with a fixed width, e.g. by padding it with `0`. See also `.toFixed()` for padding the decimals of a given number.
 	 * @param  {integer} digits number of characters
 	 * @return {String}         [description]
 	 */
@@ -109,7 +109,7 @@
 	/** @class Math */
 
 	/**
-	 * Round number to a given number of decimals
+	 * Round number to a given number of decimals.
 	 * @param  {Number}  val       [description]
 	 * @param  {integer} precision [description]
 	 * @return {Number}            [description]
@@ -119,7 +119,7 @@
 	};
 
 	/**
-	 * Get a random number between min (inclusive) and max (inclusive)
+	 * Get a random number between min (inclusive) and max (inclusive).
 	 * @param  {integer} min [description]
 	 * @param  {integer} max [description]
 	 * @return {integer}     [description]
@@ -133,7 +133,7 @@
 	/** @class Array */
 
 	/**
-	 * Push element only to array if element is not empty
+	 * Push element only to array if element is not empty.
 	 * @param  {mixed}    element [description]
 	 * @return {Array}            [description]
 	 */
@@ -271,11 +271,19 @@
 		 * @param {Function} fn       function(e), where `this` is the filtered element, and `e` the event object
 		 */
 		EventTarget.prototype.addBubbledEventListener = function ( type, selector, fn, useCapture ) {
-			this.addEventListener( type, function(e) {
-				if (e.target.matches(selector)) {
-					fn.call(e.target,e);
-				}
-			}, useCapture);
+			if (this.addEventListener) {
+				this.addEventListener( type, function(e) {
+					if (e.target.matches(selector)) {
+						fn.call(e.target,e);
+					}
+				}, useCapture);
+			} else { // IE8
+				this.attachEvent('on' + type, function(e){
+					if (e.target.matches(selector)) {
+						fn.call(e.target,e);
+					}
+				});
+			}
 		};
 	}
 
@@ -288,11 +296,13 @@
 		 * @return {Document}     [description]
 		 */
 		Document.prototype.ready = function (fn) {
-			if (document.addEventListener) {
+			if (document.readyState !== 'loading') {
+				fn();
+			} else if (document.addEventListener) {
 				document.addEventListener('DOMContentLoaded', fn);
-			} else {
+			} else { // IE8
 				document.attachEvent('onreadystatechange', function() {
-					if (document.readyState != 'loading') {
+					if (document.readyState !== 'loading') {
 						fn();
 					}
 				});

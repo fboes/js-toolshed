@@ -187,7 +187,7 @@ Remove whitespaces around string. Already available in Chrome, FF 3.5, IE 9, Saf
 <a name="String+sprintf"></a>
 
 ### string.sprintf(args) ⇒ <code>[String](#String)</code>
-Replace `%s`, `%d`, `%f` in given string with parameters
+Replace `%s`, `%d`, `%f` in given string with parameters.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
@@ -199,21 +199,21 @@ Replace `%s`, `%d`, `%f` in given string with parameters
 <a name="String+fromId"></a>
 
 ### string.fromId() ⇒ <code>[String](#String)</code>
-Convert `#string` into `string`
+Convert `#string` into `string`.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+toId"></a>
 
 ### string.toId() ⇒ <code>[String](#String)</code>
-Convert `#string` into `string`
+Convert `#string` into `string`.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+htmlEncode"></a>
 
 ### string.htmlEncode() ⇒ <code>[String](#String)</code>
-Convert string to XML / HTML safe string
+Convert string to XML / HTML safe string.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
@@ -236,7 +236,7 @@ Convert String like '?a=b&c=d' into `{a:'b',c:'d'}`. See Window.location.getPara
 <a name="Number+toFixedString"></a>
 
 ### number.toFixedString(digits) ⇒ <code>[String](#String)</code>
-Convert a number to a string representation with a fixed width, e.g. by padding it with `0`. See also `.toFixed()` for padding the deicmals of a given number.
+Convert a number to a string representation with a fixed width, e.g. by padding it with `0`. See also `.toFixed()` for padding the decimals of a given number.
 
 **Kind**: instance method of <code>[Number](#Number)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
@@ -257,7 +257,7 @@ Convert a number to a string representation with a fixed width, e.g. by padding 
 <a name="Math.roundPrecision"></a>
 
 ### Math.roundPrecision(val, precision) ⇒ <code>[Number](#Number)</code>
-Round number to a given number of decimals
+Round number to a given number of decimals.
 
 **Kind**: static method of <code>[Math](#Math)</code>  
 **Returns**: <code>[Number](#Number)</code> - [description]  
@@ -270,7 +270,7 @@ Round number to a given number of decimals
 <a name="Math.randomInt"></a>
 
 ### Math.randomInt(min, max) ⇒ <code>integer</code>
-Get a random number between min (inclusive) and max (inclusive)
+Get a random number between min (inclusive) and max (inclusive).
 
 **Kind**: static method of <code>[Math](#Math)</code>  
 **Returns**: <code>integer</code> - [description]  
@@ -287,7 +287,7 @@ Get a random number between min (inclusive) and max (inclusive)
 <a name="Array+pushOnNotEmpty"></a>
 
 ### array.pushOnNotEmpty(element) ⇒ <code>[Array](#Array)</code>
-Push element only to array if element is not empty
+Push element only to array if element is not empty.
 
 **Kind**: instance method of <code>[Array](#Array)</code>  
 **Returns**: <code>[Array](#Array)</code> - [description]  

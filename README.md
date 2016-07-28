@@ -26,11 +26,21 @@ See the [auto documentation](docs/api.md) for new methods to use.
 * An improved `Date`-object acts as a parser for ISO-formatted dates.
 * `Elements` gets methods for class- and event-manipulation like in jQuery.
 
-There is also [a small polyfill](src/js-legacy.js) to give older browsers some new Javascript methods.
+There is also [a small polyfill](src/js-legacy.js) to give older browsers (IE 8) some new Javascript methods.
 
 * There is a stub `console` for old browsers.
 * Added methods for adding `Events`.
 * New methods for selecting `Nodes` added.
+
+Compatibility
+-------------
+
+[`js-toolshed.js`]((build/js-toolshed.js)) works with:
+
+* Chrome
+* Firefox
+* Internet Explorer 8+
+* Edge
 
 Version
 -------
