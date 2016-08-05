@@ -38,17 +38,25 @@
 	};
 
 	/**
-	 * Convert `#string` into `string`.
-	 * @return {String}           [description]
+	 * Remove any special characters from string and convert into lowercase.
+	 * @return {String} [description]
 	 */
-	String.prototype.toId = function () {
-		return '#'+ this.toLowerCase()
+	String.prototype.asciify = function () {
+		return this.toLowerCase()
 			.replace(/[äáàâ]/g,'a')
 			.replace(/[üúùû]/g,'u')
 			.replace(/[öóòô]/g,'o')
 			.replace(/[ëéèê]/g,'o')
 			.replace(/[^a-z0-9]/g,'-')
-			.replace(/^([^a-z])/,'id$1')
+		;
+	};
+
+	/**
+	 * Convert `String` into `#string`.
+	 * @return {String}           [description]
+	 */
+	String.prototype.toId = function () {
+		return '#'+ this.asciify().replace(/^([^a-z])/,'id$1')
 		;
 	};
 
@@ -327,16 +335,26 @@
  */
 DateSetFromIsoString = function (dateString) {
 	'use strict';
-	var dateValues = dateString.match(/^(\d+)\-(\d+)\-(\d+)(?:.(\d+):(\d+):(\d+)(?:(\+|\-)(\d+)\:(\d+))?)?/), i;
+	var dateValues = dateString.match(/^(\d+)\-(\d+)\-(\d+)(?:.(\d+):(\d+):(\d+)(?:(\+|\-)(\d+)\:(\d+))?)?/), i, that = new Date();
 	if (dateValues) {
 		for (i = 0; i <= 9; i++) {
 			if (!dateValues[i]) {
-				dateValues[i] = 0;
+				switch (i) {
+					case 7:
+						dateValues[i] = (that.getTimezoneOffset() >= 0) ? '+' : '-';
+						break;
+					case 8:
+						dateValues[i] = Math.abs(that.getTimezoneOffset()/60);
+						break;
+					default:
+						dateValues[i] = 0;
+						break;
+				}
 			} else if (i !== 7) {
 				dateValues[i] = parseInt(dateValues[i]);
 			}
 		}
-		var that = new Date(Date.UTC(
+		that = new Date(Date.UTC(
 			(dateValues[1]),
 			(dateValues[2] - 1),
 			(dateValues[3]),

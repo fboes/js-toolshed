@@ -45,7 +45,7 @@ Compatibility
 Version
 -------
 
-Version: 1.2.3 (2016-07-25)
+Version: 1.2.4 (2016-08-05)
 
 Legal stuff
 -----------

@@ -173,6 +173,7 @@ Add event listener to an element, but only react to special sub elements of this
     * [.trim()](#String+trim) ⇒ <code>[String](#String)</code>
     * [.sprintf(args)](#String+sprintf) ⇒ <code>[String](#String)</code>
     * [.fromId()](#String+fromId) ⇒ <code>[String](#String)</code>
+    * [.asciify()](#String+asciify) ⇒ <code>[String](#String)</code>
     * [.toId()](#String+toId) ⇒ <code>[String](#String)</code>
     * [.htmlEncode()](#String+htmlEncode) ⇒ <code>[String](#String)</code>
     * [.paramsToObject(splitter)](#String+paramsToObject) ⇒ <code>[Object](#Object)</code>
@@ -203,10 +204,17 @@ Convert `#string` into `string`.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
+<a name="String+asciify"></a>
+
+### string.asciify() ⇒ <code>[String](#String)</code>
+Remove any special characters from string and convert into lowercase.
+
+**Kind**: instance method of <code>[String](#String)</code>  
+**Returns**: <code>[String](#String)</code> - [description]  
 <a name="String+toId"></a>
 
 ### string.toId() ⇒ <code>[String](#String)</code>
-Convert `#string` into `string`.
+Convert `String` into `#string`.
 
 **Kind**: instance method of <code>[String](#String)</code>  
 **Returns**: <code>[String](#String)</code> - [description]  
