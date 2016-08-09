@@ -1,9 +1,9 @@
 js-toolshed
 ===========
 
-[![devDependency Status](https://david-dm.org/fboes/js-toolshed/dev-status.svg)](https://david-dm.org/fboes/js-toolshed#info=devDependencies)
+[![devDependency Status](https://david-dm.org/fboes/js-toolshed/dev-status.svg)](https://david-dm.org/fboes/js-toolshed?type=dev)
 
-Javascript Toolshed adds some basic methods to already existing JS prototypes / objects.
+Javascript Toolshed adds some basic methods to already existing JS prototypes / objects. You may want to consider if [extending native objects is evil or not](https://javascriptweblog.wordpress.com/2011/12/05/extending-javascript-natives/).
 
 And remember: [You might not need jQuery](docs/no-jquery.md) and use [Vanilla JS](http://vanilla-js.com/) instead.
 

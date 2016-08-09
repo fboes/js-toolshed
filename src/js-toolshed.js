@@ -65,7 +65,15 @@
 	 * @return {String}           [description]
 	 */
 	String.prototype.htmlEncode = function () {
-		return this.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+		var entityMap = {
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;'
+		};
+		return this.replace(/[&<>"]/g, function (s) {
+			return entityMap[s];
+		});
 	};
 
 	/**
@@ -151,19 +159,21 @@
 
 	/** @class Object */
 
-	/**
-	 * Run function on all properties of an object.
-	 * @param  {Function} fn  function(value,key,object){}, `this` being the current object
-	 * @return {Object}       [description]
-	 */
-	Object.prototype.forEachProperty = function (fn) {
-		var key;
-		for (key in this) {
-			if (!this.hasOwnProperty(key)) {continue;}
-			fn.call(this,this[key],key,this);
-		}
-		return this;
-	};
+	if (!Object.prototype.forEachProperty) {
+		/**
+		 * Run function on all properties of an object.
+		 * @param  {Function} fn  function(value,key,object){}, `this` being the current object
+		 * @return {Object}       [description]
+		 */
+		Object.prototype.forEachProperty = function (fn) {
+			var key;
+			for (key in this) {
+				if (!this.hasOwnProperty(key)) {continue;}
+				fn.call(this,this[key],key,this);
+			}
+			return this;
+		};
+	}
 
 
 
