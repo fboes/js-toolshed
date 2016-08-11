@@ -69,9 +69,10 @@
 			'&': '&amp;',
 			'<': '&lt;',
 			'>': '&gt;',
-			'"': '&quot;'
+			'"': '&quot;',
+			"'": '&#39;'
 		};
-		return this.replace(/[&<>"]/g, function (s) {
+		return this.replace(/[&<>"']/g, function (s) {
 			return entityMap[s];
 		});
 	};
