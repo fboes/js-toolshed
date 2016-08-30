@@ -23,6 +23,7 @@
     "gulp-nodeunit": "0.0.5",
     "gulp-plumber": "^1.1.0",
     "gulp-uglify": "^1.5.3",
+    "husky": "^0.11.6",
     "jit-grunt": "^0.10.0",
     "jshint": "^2.9.2"
   },
@@ -34,7 +35,8 @@
   },
   "scripts": {
     "test": "nodeunit test",
-    "docs": "jsdoc2md src/*.js > docs/api.md"
+    "docs": "jsdoc2md src/*.js > docs/api.md",
+    "precommit": "grunt"
   },
   "config": {
     "develop": false

@@ -24,8 +24,8 @@ exports.testStringFunctionality = function(test) {
 	test.strictEqual('X'.toId(), '#x', 'Lower-casing');
 	test.strictEqual('X Y'.toId(), '#x-y', 'Lower-casing');
 	test.strictEqual('1 X Y'.toId(), '#id1-x-y', 'Lower-casing');
-	test.strictEqual('üöä'.toId(), '#uoa', 'Lower-casing');
-	test.strictEqual('ß'.toId(), '#id-', 'Lower-casing');
+	test.strictEqual('üöä'.toId(), '#ueoeae', 'Lower-casing');
+	test.strictEqual('ß'.toId(), '#ss', 'Lower-casing');
 
 	// String.htmlEncode
 	test.strictEqual('x'.htmlEncode(), 'x', 'htmlEncode() without any special stuff.');
