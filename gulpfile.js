@@ -44,7 +44,9 @@ gulp.task('nodeunit', function() {
 			undef: true,
 			strict: true
 		}))
-		.pipe(nodeunit())
+		.pipe(nodeunit({
+			reporter: 'minimal'
+		}))
 	;
 });
 
