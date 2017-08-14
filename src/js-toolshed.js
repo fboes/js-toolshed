@@ -258,15 +258,13 @@
     };
   }
 
-  if (typeof NodeList !== 'undefined') {
-    /** @class NodeList */
-
+  if (!HTMLCollection.prototype.forEach) {
     /**
      * Run function with all Nodes contained in a NodeList.
-     * @param  {Function} fn  function(currentNode,index,NodeList){}, `this` being currentNode
-     * @return {NodeList}     [description]
+     * @param  {HTMLCollection} fn  function(currentNode,index,NodeList){}, `this` being currentNode
+     * @return {NodeList}           [description]
      */
-    NodeList.prototype.forEachNode = function ( fn, thisArg ) {
+    HTMLCollection.prototype.forEach = function ( fn, thisArg ) {
       var i;
       for (i = 0; i < this.length; i++) {
         fn.call(this[i],this[i],i,this);

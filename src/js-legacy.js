@@ -39,13 +39,29 @@
     };
   }
 
+  /** @class NodeList */
+  if (!NodeList.prototype.forEach) {
+    /**
+     * [forEach description]
+     * @param  {Function} fn  function(currentNode,index,NodeList){}, `this` being currentNode
+     * @return {NodeList}         [description]
+     */
+    NodeList.prototype.forEach = function ( fn, thisArg ) {
+      var i;
+      for (i = 0; i < this.length; i++) {
+        fn.call(this[i],this[i],i,this);
+      }
+      return this;
+    };
+  }
+
   /** @class EventTarget */
   if (!EventTarget.prototype.addEventListener) {
     /**
      * Add an event. Already available in Chrome 1, Firefox 1, IE 9, Safari 1.
      * @param {String}   type [description]
      * @param {Function} fn   [description]
-     * @return {EventTarget}         [description]
+     * @return {EventTarget}  [description]
      */
     EventTarget.prototype.addEventListener = function ( type, fn ) {
       if (this.attachEvent) {
